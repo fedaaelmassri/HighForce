@@ -23,6 +23,10 @@
 
 
 Route::get('/Home', 'frontend\HomeController@index')->name('home');
+Route::get('/contact_us', 'frontend\ContactUsController@index')->name('contactUs');
+Route::get('/about', 'frontend\AboutController@index')->name('about');
+Route::post('/send_email', 'frontend\ContactUsController@docontactus')->name('sendEmail');
+Route::post('/send_email/QuickContactus', 'frontend\ContactUsController@QuickContactus')->name('sendEmail.QuickContactus');
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -92,6 +96,18 @@ Route::namespace('backend')->prefix('/admin/brands')->middleware(['auth'])->grou
 });
 /* .... end brands route .... */
 
+/* .... route Products ....  */
+Route::namespace('backend')->prefix('/admin/products')->middleware(['auth'])->group(function (){
+    Route::get('/', 'ProductsController@index')->name('admin.products');
+    Route::get('/create','ProductsController@create')->name('admin.products.create');
+    Route::post('/store','ProductsController@store')->name('admin.products.store');
+    Route::get('/getSupCat/{id}', 'ProductsController@getSupCat')->name('admin.products.getSupCat');
+    Route::get('/delete/{id}', 'ProductsController@delete')->name('admin.products.delete');
+    Route::get('/edit/{id}', 'ProductsController@editProduct')->name('admin.products.edit');
+    Route::put('{id}', 'ProductsController@updateProduct')->name('admin.products.update');
+});
+/* .... end Products route .... */
+
 /* .... route catalogues ....  */
 Route::namespace('backend')->prefix('/admin/ecatalogues')->middleware(['auth'])->group(function (){
     Route::get('/', 'EcataloguesController@index')->name('admin.ecatalogues');
@@ -103,58 +119,55 @@ Route::namespace('backend')->prefix('/admin/ecatalogues')->middleware(['auth'])-
 });
 /* .... end catalogues route .... */
 
-/* .... route aboutus ....  */
-Route::namespace('backend')->prefix('/admin/aboutus')->middleware(['auth'])->group(function (){
-    Route::get('/create','EcataloguesController@create')->name('admin.aboutus');
-    Route::post('/store','EcataloguesController@store')->name('admin.aboutus.store');
+/* .... route about us ....  */
+Route::namespace('backend')->prefix('/admin/aboutUs')->middleware(['auth'])->group(function (){
+    Route::get('/', 'AboutController@index')->name('admin.aboutUs');
+    Route::get('/create', 'AboutController@create')->name('admin.aboutUs.create');
+    Route::post('/store','AboutController@store')->name('admin.aboutUs.store');
+    Route::get('/delete/{id}', 'AboutController@delete')->name('admin.aboutUs.delete');
+    Route::get('/edit/{id}', 'AboutController@editAbout')->name('admin.aboutUs.edit');
+    Route::put('{id}', 'AboutController@updateAbout')->name('admin.aboutUs.update');
+
+
+
 });
-/* .... end aboutus route .... */
+/* .... end about us route .... */
+
 
 /* .... route category ....  */
 Route::namespace('backend')->prefix('/admin/category')->middleware(['auth'])->group(function (){
     Route::get('/', 'CategoryController@index')->name('admin.category');
-
     Route::get('/create','CategoryController@create')->name('admin.category.create');
     Route::post('/store','CategoryController@store')->name('admin.category.store');
-
+    Route::get('/delete/{id}', 'CategoryController@delete')->name('admin.category.delete');
     Route::get('/edit/{id}', 'CategoryController@editCategory')->name('admin.category.edit');
     Route::put('{id}', 'CategoryController@updateCategory')->name('admin.category.update');
-
-    Route::get('/delete/{id}', 'CategoryController@delete')->name('admin.category.delete');
 
 });
 /* .... end category route .... */
 
 
   // ******************** Auth route For Admin **********************************
-  Route::group(['prefix' => 'admin'], function() {
-    Auth::routes();
+//   Route::group(['prefix' => 'admin'], function() {
+//     Auth::routes();
 
-    //Auth::routes(['verify' => true]);
+//Auth::routes(['verify' => true]);
 
-    Route::get('logout', function () {
-        Auth::logout();
-        return redirect('login');
-    })->name('admin.logout');
+//     Route::get('logout', function () {
+//         Auth::logout();
+//         return redirect('login');
+//     })->name('admin.logout');
 
-});
-
-
-
-// Auth::routes();
+// });
 
 
 
-// Auth::routes();
-// Auth::routes(['verify' => true]);
-// Route::get('/admin/logout', function () {
-//     Auth::logout();
-//     return redirect('/login');
-// })->name('admin.logout');
+Auth::routes();
+//Auth::routes(['verify' => true]);
+Route::get('/admin/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('admin.logout');
 
 
 /* .... End Dashboard ... */
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

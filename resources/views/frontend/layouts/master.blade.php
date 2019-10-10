@@ -132,10 +132,10 @@
                                 <li><a href="{{route('blog')}}">Blog</a>
 
                                 </li>
-                                <li><a href="#">About us</a>
+                                <li><a href="{{route('about')}}">About us</a>
 
                                 </li>
-                                <li><a href="#">Contact us</a>
+                                <li><a href="{{route('contactUs')}}">Contact us</a>
 
                                 </li>
 
@@ -221,12 +221,13 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Quick Contact</h5>
-                            <form id="footer_quick_contact_form" name="footer_quick_contact_form" class="quick-contact-form" action="includes/quickcontact.php" method="post">
-                                <div class="form-group">
-                                    <input id="form_email" name="form_email" class="form-control" type="text" required="" placeholder="Enter Email">
+                            <form id="footer_quick_contact_form" name="footer_quick_contact_form" class="quick-contact-form" action="{{route('sendEmail.QuickContactus')}}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                    <input id="email" name="email" class="form-control email" type="email" required="" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="form_message" name="form_message" class="form-control" required="" placeholder="Enter Message" rows="3"></textarea>
+                                    <textarea id="message" name="message" class="form-control" required="" placeholder="Enter Message" rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
@@ -268,7 +269,7 @@
                 <div class="container pt-15 pb-10">
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="font-12 text-gray m-0 text-center">Copyright &copy;2016 <span class="text-theme-colored">ThemeMascot</span>. All Rights Reserved</p>
+                            <p class="font-12 text-gray m-0 text-center">Copyright &copy;2019 <span class="text-theme-colored">ThemeMascot</span>. All Rights Reserved</p>
                         </div>
                     </div>
                 </div>
@@ -281,6 +282,25 @@
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{ asset('assets/app/bundle/app.bundle.js')}}" type="text/javascript"></script>
+
+     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+     <script>
+    @if (session('message'))
+
+    var type = "{{session('alert-type')}}"
+    switch (type) {
+        case 'success':
+            toastr.success("{{ session('message') }}");
+            break;
+        case 'error':
+            toastr.error("{{ session('message') }}");
+            break;
+    }
+
+    @endif
+    </script>
+
 
     @yield('js')
 

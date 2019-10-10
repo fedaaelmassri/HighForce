@@ -95,8 +95,8 @@
 	                        <i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 	                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 	                        <ul class="kt-menu__subnav">
-	                            <li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_minimized-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-database"><span></span></i><span class="kt-menu__link-text">All Products</span></a></li>
-	                            <li class="kt-menu__item " aria-haspopup="true"><a href="layout_general_no-aside.html" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-plus-circle"><span></span></i><span class="kt-menu__link-text">Add Product</span></a></li>
+	                            <li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.products')}}" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-database"><span></span></i><span class="kt-menu__link-text">All Products</span></a></li>
+	                            <li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.products.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-plus-circle"><span></span></i><span class="kt-menu__link-text">Add Product</span></a></li>
 
 	                        </ul>
 	                    </div>
@@ -161,16 +161,23 @@
 	                </li>
 	                <hr>
 
-	                <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
-	                        <span class="fas fa-address-card">
+                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+	                        <span class="fas fa-newspaper">
 	                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 	                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 	                                    <rect id="bound" x="0" y="0" width="24" height="24" />
 	                                </g>
 	                            </svg>
-	                        </span><span class="kt-menu__link-text">About us</span>
-	                    </a>
+	                        </span><span class="kt-menu__link-text">About US</span>
+	                        <i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+	                    <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+	                        <ul class="kt-menu__subnav">
+	                            <li class="kt-menu__item " aria-haspopup="true">
+                                    <a href="{{route('admin.aboutUs')}}" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-database"><span></span></i><span class="kt-menu__link-text">All Section</span></a></li>
+	                            <li class="kt-menu__item " aria-haspopup="true"><a href="{{route('admin.aboutUs.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet fa fa-plus-circle"><span></span></i><span class="kt-menu__link-text">Add Section</span></a></li>
 
+	                        </ul>
+	                    </div>
 	                </li>
 	            </ul>
 	        </div>
