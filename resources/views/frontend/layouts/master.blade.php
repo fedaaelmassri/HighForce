@@ -48,6 +48,10 @@
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <!-- JS | jquery plugin collection for this theme -->
     <script src="{{asset('assets/js/jquery-plugin-collection.js')}}"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+         <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
         @yield('style')
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

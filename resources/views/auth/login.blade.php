@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="col kt-align-right">
                                     @if (Route::has('password.request'))
-                                        <a href="{{ route('password.request') }}" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
+                                        <a href="{{route('password.request')}}"  class="kt-login__link">Forget Password ?</a>
                                         @endif
                                     </div>
                                 </div>
@@ -94,22 +94,13 @@
                                 </div>
                             </form>
                         </div>
-
-                        <div class="kt-login__forgot">
-                            <div class="kt-login__head">
-                                <h3 class="kt-login__title">Forgotten Password ?</h3>
-                                <div class="kt-login__desc">Enter your email to reset your password:</div>
-                            </div>
-                            <form class="kt-form">
-                                <div class="input-group">
-                                    <input class="form-control" type="email" placeholder="Email" name="email" id="email" autocomplete="off">
-                                </div>
-                                <div class="kt-login__actions">
-                                    <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
-                                    <button id="kt_login_forgot_cancel" class="btn btn-secondary btn-pill kt-login__btn-secondary">Cancel</button>
-                                </div>
-                            </form>
+                        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
                         </div>
+                    @endif
+
+
 
                     </div>
                 </div>
@@ -126,7 +117,7 @@
     @include('backend.templates.foot')
 
     <!--begin::Page Scripts(used by this page) -->
-    <script src="{{asset('assets/app/custom/login/login-general.js')}}" type="text/javascript"></script>
+    <!-- <script src="{{asset('assets/app/custom/login/login-general.js')}}" type="text/javascript"></script> -->
     <script>
 $("#owl-demo").owlCarousel({
     navigation : true
