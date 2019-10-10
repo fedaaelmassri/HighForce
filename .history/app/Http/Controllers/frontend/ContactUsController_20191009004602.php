@@ -169,7 +169,7 @@ class ContactUsController extends Controller
             'alert-type' => 'success'
 
           );
-          return redirect()->route('home')->with($notification);
+          return redirect()->route('Home')->with($notification);
 
 
         // if($mail)
