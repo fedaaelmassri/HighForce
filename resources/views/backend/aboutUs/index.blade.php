@@ -84,7 +84,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="kt_table_1" role="grid" aria-describedby="kt_table_1_info" style="width: 992px;">
+                    <table class="table  table-hover table-checkable dataTable no-footer dtr-inline" id="kt_table_1" role="grid" aria-describedby="kt_table_1_info" style="width: 992px;">
                         <thead>
                             <tr role="row">
                                 <th class="sorting_asc" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 46.25px;" aria-sort="ascending" aria-label="Record ID: activate to sort column descending">Record ID</th>
@@ -195,7 +195,7 @@
             success: function(data) {
                 // alert(data);
                 current_location.closest("tr").remove();
-                $('#deleteNewsModal').modal('toggle');
+                $('#deleteAboutsModal').modal('toggle');
                 toastr.success(""+data.message);
 
             }

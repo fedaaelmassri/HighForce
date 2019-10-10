@@ -20,7 +20,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-lg-3 col-sm-12">Title:</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter brand name" value="{{ old('name')  }}" class="form-control @error('name') is-invalid @enderror">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter the name" value="{{ old('name')  }}" class="form-control @error('name') is-invalid @enderror">
 
                     @error('name')
                     <p class="text-danger">{{$message}}</p>
@@ -31,7 +31,7 @@
             <div class="form-group row">
                 <label class="col-form-label col-lg-3 col-sm-12">Description:</label>
                 <div class="col-lg-6 col-md-9 col-sm-12">
-                    <textarea class="form-control" id="description" name="description" placeholder="Enter a description" rows="8">{{old('description')}}</textarea>
+                    <textarea class="form-control" id="description" name="description" placeholder="Enter the description" rows="8">{{old('description')}}</textarea>
                     @error('description')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
