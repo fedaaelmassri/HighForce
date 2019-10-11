@@ -28,12 +28,21 @@ Route::get('/about', 'frontend\AboutController@index')->name('about');
 Route::post('/send_email', 'frontend\ContactUsController@docontactus')->name('sendEmail');
 Route::post('/send_email/QuickContactus', 'frontend\ContactUsController@QuickContactus')->name('sendEmail.QuickContactus');
 
+//////////////////////  service route  //////////////////
+Route::get('/service/{id}', 'frontend\ServicesController@viewById')->name('details');
+Route::get('ecatalogues/{id}/download', 'frontend\ServicesController@downloads')->name('downloads.download');
+
+
+
+
+////////////////////// end service route //////////////////
+
 Route::get('/', function () {
     return view('frontend.home');
 });
-Route::get('/service/{id}', function () {
-    return view('frontend.service-details');
-})->name('service-details');
+// Route::get('/service/{id}', function () {
+//     return view('frontend.service-details');
+// })->name('service-details');
 
 Route::get('/blog', function () {
     return view('frontend.blog');

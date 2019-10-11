@@ -115,8 +115,17 @@
 
                                 </li>
                                 <li><a href="#">Services</a>
+                <ul class="dropdown">
+<?php
 
-                                </li>
+$services=App\Services::get();
+?>
+
+                    @foreach($services as $servic)
+                  <li><a href="{{route('details', [ 'id' => $servic->id ])}}">{{$servic->name}}</a></li>
+@endforeach
+                </ul>
+              </li>
                                 <li><a href="#">Products </a>
 
 
