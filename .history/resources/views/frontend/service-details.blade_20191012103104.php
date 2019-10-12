@@ -44,7 +44,7 @@
 
 
                                     @foreach($allServices as $allServ)
-                                    <li class="{{$services->id==$allServ->id ? 'active' : ''}}"><a href="{{route('details' , [ 'id' => $allServ->id ])}}"> {{$allServ->name}}</a></li>
+                                    <li class="{{$services->id==$allServ->id? active : ''}}"><a href="{{route('details' , [ 'id' => $allServ->id ])}}"> {{$allServ->name}}</a></li>
 
                                     @endforeach
                                 </ul>

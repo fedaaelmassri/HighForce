@@ -24,8 +24,7 @@ class ServicesController extends Controller
         return view('frontend.service-details')->with([
             'services' => Services::find($id),
             'activeServices' => Services::first(),
-            'allServices' => Services::get(),
-            //'allServices' => Services::offset(1)->take(6)->get(),
+            'allServices' => Services::offset(1)->get(),
             'ecatalogues' => ECatalogues::get()
 
         ]);

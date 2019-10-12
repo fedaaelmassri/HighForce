@@ -10,10 +10,10 @@
         <div class="section-content pt-100">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title text-theme-colored">Blog</h3>
+              <h3 class="title text-theme-colored">News</h3>
               <ul class="breadcrumb white">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">Blog</li>
+                <li class="active">News</li>
               </ul>
             </div>
           </div>

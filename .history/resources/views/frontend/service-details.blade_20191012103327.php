@@ -40,6 +40,7 @@
                             <div class="services-list">
                                 <ul class="list mt-0">
 
+                                    <li class="active"><a href="{{route('details' , [ 'id' => $activeServices->id ])}}"> {{$activeServices->name}}</a></li>
 
 
 

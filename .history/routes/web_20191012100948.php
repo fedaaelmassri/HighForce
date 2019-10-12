@@ -47,17 +47,13 @@ Route::get('/brands', function () {
     return view('frontend.brands');
 })->name('brands');
 Route::get('/news', function () {
-    return view('frontend.news');
+    return view('frontend.brands');
 })->name('news');
 
 
 Route::get('/blog', function () {
     return view('frontend.blog');
 })->name('blog');
-
-Route::get('/brand/{id}', function () {
-    return view('frontend.brand-details');
-})->name('brand-details');
 
 Route::get('/post/{id}', function () {
     return view('frontend.post-details');

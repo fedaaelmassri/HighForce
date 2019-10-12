@@ -139,7 +139,7 @@ $services=App\Services::get();
                                 <li><a href="{{route('brands')}}">Brands</a>
 
                                 </li>
-                                <li><a href="{{route('news')}}">News</a>
+                                <li><a href="#">News</a>
 
                                 </li>
                                 <li><a href="{{route('blog')}}">Blog</a>

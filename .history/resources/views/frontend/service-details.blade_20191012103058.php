@@ -40,11 +40,12 @@
                             <div class="services-list">
                                 <ul class="list mt-0">
 
+                                    <li class="active"><a href="{{route('details' , [ 'id' => $activeServices->id ])}}"> {{$activeServices->name}}</a></li>
 
 
 
                                     @foreach($allServices as $allServ)
-                                    <li class="{{$services->id==$allServ->id ? 'active' : ''}}"><a href="{{route('details' , [ 'id' => $allServ->id ])}}"> {{$allServ->name}}</a></li>
+                                    <li class="{{$services->id==$allServ->id? active : ''}}"><a href="{{route('details' , [ 'id' => $allServ->id ])}}"> {{$allServ->name}}</a></li>
 
                                     @endforeach
                                 </ul>
