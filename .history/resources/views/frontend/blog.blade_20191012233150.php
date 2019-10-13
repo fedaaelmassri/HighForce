@@ -4,16 +4,16 @@
   <div class="main-content">
 
     <!-- Section: inner-header -->
-    <section class="inner-header divider parallax layer-overlay overlay-dark-5"  >
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1080">
       <div class="container pt-100 pb-50">
         <!-- Section Content -->
         <div class="section-content pt-100">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title text-theme-colored">News</h3>
+              <h3 class="title text-theme-colored">Blog</h3>
               <ul class="breadcrumb white">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">News</li>
+                <li class="active">Blog</li>
               </ul>
             </div>
           </div>
@@ -30,30 +30,30 @@
         <div class="blog-posts">
           <div class="col-md-12">
             <div class="row list-dashed">
-            @foreach($news as $new)
+            @foreach($posts as $post)
 
               <article class="post clearfix mb-30 bg-lighter">
                 <div class="entry-header">
                   <div class="post-thumb thumb">
-                    <img  src="{{asset('storage/' . $new->image )}}" alt="" class="img-responsive img-fullwidth">
+                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth">
                   </div>
                 </div>
                 <div class="entry-content p-20 pr-10">
                   <div class="entry-meta media mt-0 no-bg no-border">
                     <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
                       <ul>
-                        <li class="font-16 text-white font-weight-600">{{$new->created_at->format('d') }}</li>
-                        <li class="font-12 text-white text-uppercase">{{$new->created_at->format('m') }}</li>
+                        <li class="font-16 text-white font-weight-600">{{$post->created_at}}</li>
+                        <li class="font-12 text-white text-uppercase">{{$post->created_at}}</li>
                       </ul>
                     </div>
                     <div class="media-body pl-15">
                       <div class="event-content pull-left flip">
-                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('new-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
+                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('post-details' , [ 'id' => $post->id ])}}">{{$post->name}}</a></h4>
                        </div>
                     </div>
                   </div>
-                  <p class="mt-10">   {{ substr($new->description,0,strpos($new->description, ' ', 200)) }} </p>
-                  <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
+                  <p class="mt-10">{{$post->description}}</p>
+                  <a href="{{route('post-details' , [ 'id' => $post->id ])}}" class="btn-read-more">Read more</a>
                   <div class="clearfix"></div>
                 </div>
               </article>
@@ -66,11 +66,7 @@
             </div>
           </div>
           <div class="col-md-12">
-          <nav>
-          {{ $news->links() }}
-          </nav>
-
-            <!-- <nav>
+            <nav>
               <ul class="pagination theme-colored">
                 <li> <a aria-label="Previous" href="#"> <span aria-hidden="true">«</span> </a> </li>
                 <li class="active"><a href="#">1</a></li>
@@ -81,9 +77,8 @@
                 <li><a href="#">...</a></li>
                 <li> <a aria-label="Next" href="#"> <span aria-hidden="true">»</span> </a> </li>
               </ul>
-            </nav> -->
+            </nav>
           </div>
-
         </div>
       </div>
 

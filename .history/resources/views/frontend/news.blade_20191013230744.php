@@ -48,12 +48,12 @@
                     </div>
                     <div class="media-body pl-15">
                       <div class="event-content pull-left flip">
-                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('new-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
+                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('post-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
                        </div>
                     </div>
                   </div>
-                  <p class="mt-10">   {{ substr($new->description,0,strpos($new->description, ' ', 200)) }} </p>
-                  <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
+                  <p class="mt-10">  </p>
+                  <a href="{{route('post-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
                   <div class="clearfix"></div>
                 </div>
               </article>

@@ -5,16 +5,16 @@
   <div class="main-content">
 
     <!-- Section: inner-header -->
-    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{asset('storage/' . $post->image )}}" >
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1080">
       <div class="container pt-100 pb-50">
         <!-- Section Content -->
         <div class="section-content pt-100">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title text-white">{{$post->name}}</h3>
+              <h3 class="title text-white">Single Post</h3>
               <ul class="breadcrumb white">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">{{$post->name}}</li>
+                <li class="active">Single Post</li>
               </ul>
             </div>
           </div>
@@ -58,30 +58,45 @@
           <div class="col-md-3">
             <div class="sidebar sidebar-left mt-sm-30">
 
-              <div class="widget">
-                <h5 class="widget-title line-bottom">Latest Posts</h5>
-                <div class="latest-posts">
-                @foreach($latestposts as $latestposts )
-
-                  <article class="post media-post clearfix pb-0 mb-10">
-                  <a class="post-thumb" href="{{route('post-details' , [ 'id' => $latestposts->id ])}}"><img src="{{asset('storage/' . $latestposts->image )}}" width="75" height="75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="{{route('post-details' , [ 'id' => $latestposts->id ])}}">{{$latestposts->name}}</a></h5>
-                      <p>{{ substr($latestposts->description,0,strpos($latestposts->description, ' ', 30)) }} ...</p>
-                    </div>
-                  </article>
-                  @endforeach
-                </div>
-              </div>
 
               <div class="widget">
                 <h5 class="widget-title line-bottom">Archives</h5>
                 <ul class="list-divider list-border list check">
-                @foreach($archiveposts as $archiveposts )
-                   <li><a href="{{route('post-details' , [ 'id' => $archiveposts->id ])}}">{{$archiveposts->name}}</a></li>
-                   @endforeach
+                  <li><a href="#">Vehicle Accidents</a></li>
+                  <li><a href="#">Family Law</a></li>
+                  <li><a href="#">Personal Injury</a></li>
+                  <li><a href="#">Personal Injury</a></li>
+                  <li><a href="#">Case Investigation</a></li>
+                  <li><a href="#">Business Taxation</a></li>
                 </ul>
               </div>
+              <div class="widget">
+                <h5 class="widget-title line-bottom">Latest News</h5>
+                <div class="latest-posts">
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                  <article class="post media-post clearfix pb-0 mb-10">
+                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
+                    <div class="post-right">
+                      <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>
+                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

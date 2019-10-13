@@ -5,16 +5,16 @@
   <div class="main-content">
 
     <!-- Section: inner-header -->
-    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{asset('storage/' . $post->image )}}" >
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1080">
       <div class="container pt-100 pb-50">
         <!-- Section Content -->
         <div class="section-content pt-100">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title text-white">{{$post->name}}</h3>
+              <h3 class="title text-white">Single Post</h3>
               <ul class="breadcrumb white">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">{{$post->name}}</li>
+                <li class="active">Single Post</li>
               </ul>
             </div>
           </div>

@@ -192,12 +192,12 @@ $services=App\Services::get();
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Latest News</h5>
                             <div class="latest-posts">
-                            @foreach (App\News::orderBy('created_at', 'desc')->take(3)->get() as  $new)
+                            @foreach (App\News::all() as  $new)
 
                                 <article class="post media-post clearfix pb-0 mb-10">
-                                    <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="post-thumb"><img alt="" width="80" height="55" src="{{asset('storage/'.$new->image) }}"></a>
+                                    <a href="#" class="post-thumb"><img alt="" width="80" height="55" src="{{asset('storage/'.$new->image) }}"></a>
                                     <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="{{route('new-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h5>
+                                        <h5 class="post-title mt-0 mb-5"><a href="#">{{$new->name}}</a></h5>
                                         <p class="post-date mb-0 font-12">{{$new->created_at}}</p>
                                     </div>
                                 </article>
@@ -224,9 +224,10 @@ $services=App\Services::get();
                             <h5 class="widget-title line-bottom">Useful Links</h5>
                             <ul class="list angle-double-right list-border">
                                 <li><a href="{{route('home')}}">Home</a></li>
-                                <li><a href="{{route('about')}}">About</a></li>
-                                 <li><a href="{{route('news')}}">Latest News</a></li>
-                                <li><a href="{{route('blog')}}">Blog</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">project</a></li>
+                                <li><a href="#">Latest News</a></li>
+                                <li><a href="#">Gallery</a></li>
                             </ul>
                         </div>
                     </div>

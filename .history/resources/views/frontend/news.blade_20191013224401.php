@@ -10,10 +10,10 @@
         <div class="section-content pt-100">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="title text-theme-colored">News</h3>
+              <h3 class="title text-theme-colored">Blog</h3>
               <ul class="breadcrumb white">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">News</li>
+                <li class="active">Blog</li>
               </ul>
             </div>
           </div>
@@ -48,12 +48,12 @@
                     </div>
                     <div class="media-body pl-15">
                       <div class="event-content pull-left flip">
-                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('new-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
+                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('post-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
                        </div>
                     </div>
                   </div>
-                  <p class="mt-10">   {{ substr($new->description,0,strpos($new->description, ' ', 200)) }} </p>
-                  <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
+                  <p class="mt-10">   {{ substr($new->description,0,stripos($new->description, ' ', 200)) }} </p>
+                  <a href="{{route('post-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
                   <div class="clearfix"></div>
                 </div>
               </article>

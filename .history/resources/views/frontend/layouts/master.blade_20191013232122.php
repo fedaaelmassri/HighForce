@@ -192,7 +192,7 @@ $services=App\Services::get();
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Latest News</h5>
                             <div class="latest-posts">
-                            @foreach (App\News::orderBy('created_at', 'desc')->take(3)->get() as  $new)
+                            @foreach (App\News::all() as  $new)
 
                                 <article class="post media-post clearfix pb-0 mb-10">
                                     <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="post-thumb"><img alt="" width="80" height="55" src="{{asset('storage/'.$new->image) }}"></a>
