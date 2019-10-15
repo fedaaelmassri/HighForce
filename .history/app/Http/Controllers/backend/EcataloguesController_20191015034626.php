@@ -42,7 +42,7 @@ class EcataloguesController extends Controller
             $mimetype =$file->getClientMimeType();
     		$size = $file->getClientSize();
            // $file = $filename . '.' . $file->getClientOriginalExtension();
-             $file_path =$file->store('eCatalogues/files');
+             $file_path =$file->store('eCatalogues\files');
              //storage_path('/eCatalogues');
             // $filename = $file['filename']->getClientOriginalExtension();
          //   Storage::make($file)->save( public_path('/storage/eCatalogues/' . $filename) );

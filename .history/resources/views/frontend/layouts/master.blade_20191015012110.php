@@ -86,7 +86,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 pr-0">
+                        <div class="col-md-4 pr-0">
                             <div class="widget no-border m-0">
                                 <ul class="styled-icons icon-dark icon-flat icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                                     <li><a href="#"><i class="fa fa-facebook text-white"></i></a></li>
@@ -97,8 +97,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                        <a class="btn btn-colored btn-flat btn-theme-colored  pb-10"   href="{{route('ecatalog')}}">E-Catalog</a>
+                        <div class="col-md-2">
+                        <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">E-Catalog</a>
 
                             <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Get A Quote Now</a>
                         </div>

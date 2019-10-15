@@ -53,17 +53,12 @@ Route::get('/new/{id}', 'frontend\NewsController@viewById')->name('new-details')
 
 ////////////////////// end News route //////////////////
 
-//////////////////////  ecatalog route  //////////////////
-
-Route::get('/ecatalog', 'frontend\EcalalogController@index')->name('ecatalog');
-Route::get('/ecatalog/{id}/download', 'frontend\EcalalogController@viewById')->name('download');
-
-////////////////////// end ecatalog route //////////////////
-
 Route::get('/', function () {
     return view('frontend.home');
 });
-
+Route::get('/ecatalog', function () {
+    return view('frontend.ecatalog');
+})->name('ecatalog);
 Route::get('/brands', function () {
     return view('frontend.brands');
 })->name('brands');

@@ -3,7 +3,22 @@
   <!-- Start main-content -->
   <div class="main-content">
  <!-- Section: inner-header -->
-
+ <section class="inner-header divider parallax layer-overlay overlay-dark-5"  >
+      <div class="container pt-100 pb-50">
+        <!-- Section Content -->
+        <div class="section-content pt-100">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title text-theme-colored">Blog</h3>
+              <ul class="breadcrumb white">
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li class="active">Blog</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="inner-header bg-gray-darkgray ">
       <div class="container pt-10 pb-10">
@@ -13,8 +28,8 @@
             <div class="col-md-12">
               <h3 class="title text-theme-colored">Blog</h3>
               <ul class="breadcrumb white">
-                <li ><a href="{{route('home')}}">Home</a></li>
-                <li class=" active">Blog</li>
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li class="active">Blog</li>
               </ul>
             </div>
           </div>
@@ -35,7 +50,7 @@
               <article class="post clearfix mb-30 bg-lighter">
                 <div class="entry-header">
                   <div class="post-thumb thumb">
-                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth"  >
+                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth">
                   </div>
                 </div>
                 <div class="entry-content p-20 pr-10">

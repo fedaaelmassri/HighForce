@@ -2,19 +2,20 @@
 @section('content')
   <!-- Start main-content -->
   <div class="main-content">
- <!-- Section: inner-header -->
 
 
-    <section class="inner-header bg-gray-darkgray ">
+    <section class="inner-header bg-light">
       <div class="container pt-10 pb-10">
         <!-- Section Content -->
         <div class="section-content">
-        <div class="row">
-            <div class="col-md-12">
-              <h3 class="title text-theme-colored">Blog</h3>
-              <ul class="breadcrumb white">
-                <li ><a href="{{route('home')}}">Home</a></li>
-                <li class=" active">Blog</li>
+          <div class="row">
+            <div class="col-sm-8 xs-text-center">
+              <h3 class="text-white mt-10">Blog</h3>
+            </div>
+            <div class="col-sm-4">
+              <ul class="breadcrumb white mt-10 text-right xs-text-center">
+              <li><a href="{{route('home')}}">Home</a></li>
+                <li class="active">Blog</li>
               </ul>
             </div>
           </div>
@@ -35,7 +36,7 @@
               <article class="post clearfix mb-30 bg-lighter">
                 <div class="entry-header">
                   <div class="post-thumb thumb">
-                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth"  >
+                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth">
                   </div>
                 </div>
                 <div class="entry-content p-20 pr-10">

@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                        <a class="btn btn-colored btn-flat btn-theme-colored  pb-10"   href="{{route('ecatalog')}}">E-Catalog</a>
+                        <a class="btn btn-colored  btn-theme-colored  pb-10"   href="{{route('ecatalog')}}">E-Catalog</a>
 
                             <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Get A Quote Now</a>
                         </div>

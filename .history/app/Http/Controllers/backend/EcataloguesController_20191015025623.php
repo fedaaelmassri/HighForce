@@ -42,7 +42,7 @@ class EcataloguesController extends Controller
             $mimetype =$file->getClientMimeType();
     		$size = $file->getClientSize();
            // $file = $filename . '.' . $file->getClientOriginalExtension();
-             $file_path =$file->store('eCatalogues/files');
+             $file_path =$file->store('eCatalogues\files');
              //storage_path('/eCatalogues');
             // $filename = $file['filename']->getClientOriginalExtension();
          //   Storage::make($file)->save( public_path('/storage/eCatalogues/' . $filename) );
@@ -59,16 +59,15 @@ class EcataloguesController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image_path = $image->store('ecatalogues/images', 'public');
+            $path = $image->store('ecatalogues\images', 'public');
         } else {
 
-            $image_path = null;
+            $path = null;
         }
-        $description=$request->input('description');
     	ECatalogues::create([
             'name' => $filename,
-            'description'=> $description,
-            'image'=>$image_path,
+            'description'=>'description',
+            'image'=>'image',
     		'filepath' => $file_path,
     		'mimetype' => $mimetype,
     		'size' => $size,

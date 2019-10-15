@@ -14,7 +14,7 @@
               <h3 class="title text-theme-colored">Blog</h3>
               <ul class="breadcrumb white">
                 <li ><a href="{{route('home')}}">Home</a></li>
-                <li class=" active">Blog</li>
+                <li class=" text-theme-colored active">Blog</li>
               </ul>
             </div>
           </div>

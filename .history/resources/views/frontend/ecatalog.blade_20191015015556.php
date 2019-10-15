@@ -2,25 +2,25 @@
 @section('content')
   <!-- Start main-content -->
   <div class="main-content">
- <!-- Section: inner-header -->
 
-
+    <!-- Section: inner-header -->
     <section class="inner-header bg-gray-darkgray ">
       <div class="container pt-10 pb-10">
         <!-- Section Content -->
         <div class="section-content">
         <div class="row">
-            <div class="col-md-12">
-              <h3 class="title text-theme-colored">Blog</h3>
+        <div class="col-md-12">
+              <h3 class="title text-theme-colored">E-Catalog</h3>
               <ul class="breadcrumb white">
-                <li ><a href="{{route('home')}}">Home</a></li>
-                <li class=" active">Blog</li>
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li class="active">E-Catalog</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
 
 <section>
@@ -30,30 +30,30 @@
         <div class="blog-posts">
           <div class="col-md-12">
             <div class="row list-dashed">
-            @foreach($posts as $post)
+            @foreach($news as $new)
 
               <article class="post clearfix mb-30 bg-lighter">
                 <div class="entry-header">
                   <div class="post-thumb thumb">
-                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth"  >
+                    <img  src="{{asset('storage/' . $new->image )}}" alt="" class="img-responsive img-fullwidth">
                   </div>
                 </div>
                 <div class="entry-content p-20 pr-10">
                   <div class="entry-meta media mt-0 no-bg no-border">
                     <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
                       <ul>
-                        <li class="font-16 text-white font-weight-600">{{$post->created_at->format('d') }}</li>
-                        <li class="font-12 text-white text-uppercase">{{$post->created_at->format('m') }}</li>
+                        <li class="font-16 text-white font-weight-600">{{$new->created_at->format('d') }}</li>
+                        <li class="font-12 text-white text-uppercase">{{$new->created_at->format('m') }}</li>
                       </ul>
                     </div>
                     <div class="media-body pl-15">
                       <div class="event-content pull-left flip">
-                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('post-details' , [ 'id' => $post->id ])}}">{{$post->name}}</a></h4>
+                        <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="{{route('new-details' , [ 'id' => $new->id ])}}">{{$new->name}}</a></h4>
                        </div>
                     </div>
                   </div>
-                  <p class="mt-10">   {{ substr($post->description,0,strpos($post->description, ' ', 200)) }} </p>
-                  <a href="{{route('post-details' , [ 'id' => $post->id ])}}" class="btn-read-more">Read more</a>
+                  <p class="mt-10">   {{ substr($new->description,0,strpos($new->description, ' ', 200)) }} </p>
+                  <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="btn-read-more">Read more</a>
                   <div class="clearfix"></div>
                 </div>
               </article>
@@ -67,7 +67,7 @@
           </div>
           <div class="col-md-12">
           <nav>
-          {{ $posts->links() }}
+          {{ $news->links() }}
           </nav>
 
             <!-- <nav>

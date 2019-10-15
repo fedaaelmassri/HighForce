@@ -6,7 +6,7 @@
 
 
     <section class="inner-header bg-gray-darkgray ">
-      <div class="container pt-10 pb-10">
+      <div class="container">
         <!-- Section Content -->
         <div class="section-content">
         <div class="row">
@@ -14,7 +14,7 @@
               <h3 class="title text-theme-colored">Blog</h3>
               <ul class="breadcrumb white">
                 <li ><a href="{{route('home')}}">Home</a></li>
-                <li class=" active">Blog</li>
+                <li class=" text-theme-colored active">Blog</li>
               </ul>
             </div>
           </div>
@@ -35,7 +35,7 @@
               <article class="post clearfix mb-30 bg-lighter">
                 <div class="entry-header">
                   <div class="post-thumb thumb">
-                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth"  >
+                    <img  src="{{asset('storage/' . $post->image )}}" alt="" class="img-responsive img-fullwidth">
                   </div>
                 </div>
                 <div class="entry-content p-20 pr-10">
