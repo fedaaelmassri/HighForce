@@ -49,10 +49,25 @@
     <!-- JS | jquery plugin collection for this theme -->
     <script src="{{asset('assets/js/jquery-plugin-collection.js')}}"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-         <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 
-        @yield('style')
+    @yield('style')
+
+    <style>
+
+    .list-inline{
+display:none;
+
+
+    }
+    .menuzord-menu ul.dropdown li  {
+
+        width: 23%;
+
+    }
+
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -98,7 +113,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                        <a class="btn btn-colored btn-flat btn-theme-colored  pb-10"   href="{{route('ecatalog')}}">E-Catalog</a>
+                            <a class="btn btn-colored btn-flat btn-theme-colored  pb-10" href="{{route('ecatalog')}}">E-Catalog</a>
 
                             <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Get A Quote Now</a>
                         </div>
@@ -117,22 +132,38 @@
 
                                 </li>
                                 <li><a href="#">Services</a>
-                <ul class="dropdown">
-<?php
+                                    <ul class="dropdown">
+                                        <?php
 
-$services=App\Services::get();
-?>
+                                        $services = App\Services::get();
+                                        ?>
 
-                    @foreach($services as $servic)
-                  <li><a href="{{route('details', [ 'id' => $servic->id ])}}">{{$servic->name}}</a></li>
-@endforeach
-                </ul>
-              </li>
+                                        @foreach($services as $servic)
+                                        <li><a href="{{route('details', [ 'id' => $servic->id ])}}">{{$servic->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <li><a href="#">Products </a>
                                 </li>
                                 </li>
-                                <li><a href="{{route('brands')}}">Brands</a>
+                                <!-- <li><a href="{{route('brands')}}">Brands</a>
 
+                                </li> -->
+
+
+                                <li><a href="{{route('brands')}}">Brands</a>
+                                    <ul class="dropdown list-inline ">
+                                        <?php
+
+                                        $brands = App\Brands::get();
+                                        ?>
+
+                                        @foreach($brands as $brand)
+                                        <li><a href="">{{$brand->name}} -
+                                        <img alt="" width="20" height="10" src="{{asset('storage/'.$brand->image) }}">
+                                            </a></li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                                 <li><a href="{{route('news')}}">News</a>
 
@@ -156,7 +187,7 @@ $services=App\Services::get();
 
         <!-- Start main-content -->
         <div class="main-content">
-                @yield('content')
+            @yield('content')
         </div>
         <!-- end main-content -->
 
@@ -187,7 +218,7 @@ $services=App\Services::get();
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Latest News</h5>
                             <div class="latest-posts">
-                            @foreach (App\News::orderBy('created_at', 'desc')->take(3)->get() as  $new)
+                                @foreach (App\News::orderBy('created_at', 'desc')->take(3)->get() as $new)
 
                                 <article class="post media-post clearfix pb-0 mb-10">
                                     <a href="{{route('new-details' , [ 'id' => $new->id ])}}" class="post-thumb"><img alt="" width="80" height="55" src="{{asset('storage/'.$new->image) }}"></a>
@@ -220,7 +251,7 @@ $services=App\Services::get();
                             <ul class="list angle-double-right list-border">
                                 <li><a href="{{route('home')}}">Home</a></li>
                                 <li><a href="{{route('about')}}">About</a></li>
-                                 <li><a href="{{route('news')}}">Latest News</a></li>
+                                <li><a href="{{route('news')}}">Latest News</a></li>
                                 <li><a href="{{route('blog')}}">Blog</a></li>
                             </ul>
                         </div>
@@ -229,8 +260,8 @@ $services=App\Services::get();
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Quick Contact</h5>
                             <form id="footer_quick_contact_form" name="footer_quick_contact_form" class="quick-contact-form" action="{{route('sendEmail.QuickContactus')}}" method="post">
-                            @csrf
-                            <div class="form-group">
+                                @csrf
+                                <div class="form-group">
                                     <input id="email" name="email" class="form-control email" type="email" required="" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group">
@@ -267,21 +298,21 @@ $services=App\Services::get();
     <script src="{{asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/app/bundle/app.bundle.js')}}" type="text/javascript"></script>
 
-     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-     <script>
-    @if (session('message'))
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if(session('message'))
 
-    var type = "{{session('alert-type')}}"
-    switch (type) {
-        case 'success':
-            toastr.success("{{ session('message') }}");
-            break;
-        case 'error':
-            toastr.error("{{ session('message') }}");
-            break;
-    }
+        var type = "{{session('alert-type')}}"
+        switch (type) {
+            case 'success':
+                toastr.success("{{ session('message') }}");
+                break;
+            case 'error':
+                toastr.error("{{ session('message') }}");
+                break;
+        }
 
-    @endif
+        @endif
     </script>
 
 
