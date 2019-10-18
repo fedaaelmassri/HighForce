@@ -36,6 +36,18 @@ Route::get('ecatalogues/{id}/download', 'frontend\ServicesController@downloads')
 
 ////////////////////// end service route //////////////////
 
+
+
+
+//////////////////////  Brand route  //////////////////
+
+Route::get('/brands', 'frontend\BrandsController@index')->name('brands');
+
+Route::get('/post/{id}', 'frontend\PostsController@viewById')->name('post-details');
+
+
+////////////////////// end Brand route //////////////////
+
 //////////////////////  Blog route  //////////////////
 
  Route::get('/blog', 'frontend\PostsController@index')->name('blog');
@@ -64,9 +76,9 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
-Route::get('/brands', function () {
-    return view('frontend.brands');
-})->name('brands');
+// Route::get('/brands', function () {
+//     return view('frontend.brands');
+// })->name('brands');
 
 
 

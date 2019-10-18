@@ -13,7 +13,7 @@ class newsController extends Controller
     {
 
         return view('frontend.news')->with([
-            'news' => News::paginate(10)
+            'news' => News::paginate(1)
         ]);
     }
 

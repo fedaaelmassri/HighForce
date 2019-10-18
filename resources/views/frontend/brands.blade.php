@@ -26,60 +26,20 @@
       <div class="container pb-30">
         <div class="section-content">
           <div class="row">
+
+      
+              @foreach($brands as $brand)
             <div class="col-sm-4">
               <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class="flaticon-crane text-theme-colored"></i></a>
                 <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+                  <h5 class="media-heading heading">{{$brand->name}}</h5>
+                <p></p>
                   <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class="flaticon-worker text-theme-colored"></i></a>
-                <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
-                  <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class=" flaticon-truck text-theme-colored"></i></a>
-                <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
-                  <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class=" flaticon-circular-saw2 text-theme-colored"></i></a>
-                <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
-                  <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class=" flaticon-speedometer text-theme-colored"></i></a>
-                <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
-                  <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="icon-box left media p-0 mb-30"> <a class="media-left pull-left flip" href="#"><i class=" flaticon-tools text-theme-colored"></i></a>
-                <div class="media-body">
-                  <h5 class="media-heading heading">Features Title Here</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
-                  <a href="#" class="text-theme-colored font-13 font-weight-600">View Details →</a>
-                </div>
-              </div>
-            </div>
+            @endforeach
+
           </div>
         </div>
       </div>
