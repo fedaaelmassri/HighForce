@@ -61,11 +61,19 @@ display:none;
 
 
     }
-    .menuzord-menu ul.dropdown li  {
+    #customies {
+        width: 23% !important;
+      display: block;
+      margin-block-end: 2px;
 
-        width: 23%;
+    /* clear: both;
 
-    }
+    border: 0 none ;
+    font-size: 12px ;
+    position: relative; */
+}
+
+
 
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -152,7 +160,7 @@ display:none;
 
 
                                 <li><a href="{{route('brands')}}">Brands</a>
-                                    <ul class="dropdown list-inline ">
+                                    <ul class="dropdown list-inline " id="customies">
                                         <?php
 
                                         $brands = App\Brands::get();
