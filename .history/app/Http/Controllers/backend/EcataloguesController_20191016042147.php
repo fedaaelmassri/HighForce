@@ -129,7 +129,7 @@ class EcataloguesController extends Controller
 
         return  view('backend.ECatalogues.update', [
             'ecatalogues' =>  $ecatalogues,
-            'extfile'=>$extfile,
+            'extfile'=>$ext,
             'extimg'=>$extimg
 
 
@@ -157,7 +157,6 @@ class EcataloguesController extends Controller
         $ecatalogues->description = $request->input('description');
 
         $ecatalogues->save();
-
         if ($ecatalogues->save()) {
             return redirect(route('admin.ecatalogues'))->with([
                 'message' => sprintf(' The ECatalogue: "%s" edit success !', $ecatalogues->name),

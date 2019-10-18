@@ -39,7 +39,7 @@ class ProductsController extends Controller
         // ->orderByRaw('parent_id DESC')
         // ->get();
         $categories=Categories::with('children')
-        ->groupBy('id')->distinct()
+        ->groupBy('parent_id')->distinct()
             // ->where('parent_id',0)
              ->orderBy('name', 'asc')
             ->get()

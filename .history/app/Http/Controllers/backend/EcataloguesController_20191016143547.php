@@ -157,18 +157,18 @@ class EcataloguesController extends Controller
         $ecatalogues->description = $request->input('description');
 
         $ecatalogues->save();
-
-        if ($ecatalogues->save()) {
+        dd($ecatalogues);
+        // if ($ecatalogues->save()) {
             return redirect(route('admin.ecatalogues'))->with([
                 'message' => sprintf(' The ECatalogue: "%s" edit success !', $ecatalogues->name),
                 'alert-type' => 'success'
             ]);
-        } else {
-            return redirect()->back()->with([
-                'message' => sprintf(' The ECatalogue: "%s" can not edit success !', $ecatalogues->name),
-                'alert-type' => 'error'
-            ])->withInput();
-        }
+        // } else {
+            // return redirect()->back()->with([
+            //     'message' => sprintf(' The ECatalogue: "%s" can not edit success !', $ecatalogues->name),
+            //     'alert-type' => 'error'
+            // ])->withInput();
+        // }
     }
 
 }

@@ -58,7 +58,7 @@
 														<select class="form-control" id="main_category_id" name="main_category_id"  onchange="getSubCat()">
                                                             <option value="">Select</option>
                                                             @foreach($categories as $parent)
-                                                            @if (($parent->children->count()&& $parent->parent_id==0 )||(!$parent->children->count()&& $parent->parent_id==0))
+                                                            @if (($parent->children->count()&& $parent->parent_id==0 )||((!$parent->children->count()&& $parent->parent_id==0))
 
                                                 <option value="{{$parent->id}}" > {{$parent->name}}</option>
                                                 @endif

@@ -124,13 +124,11 @@ class EcataloguesController extends Controller
                 'alert-type' => 'error'
             ]);
         }
-        $extfile = basename(storage_path('eCatalogues/files/' . $ecatalogues->filepath) );
-        $extimg = basename(storage_path('eCatalogues/images/' . $ecatalogues->image) );
+        $ext = pathinfo(storage_path('eCatalogues/files/' . $ecatalogues->filepath), PATHINFO_EXTENSION);
 
         return  view('backend.ECatalogues.update', [
             'ecatalogues' =>  $ecatalogues,
-            'extfile'=>$extfile,
-            'extimg'=>$extimg
+            'ext'=>$ext,
 
 
         ]);
@@ -142,7 +140,7 @@ class EcataloguesController extends Controller
         $image = $request->file('image');
 
         if ($image && $image->isValid()) {
-            $path = $image->storeAs('eCatalogues/images', basename($ecatalogues->image), 'public');
+            $path = $image->storeAs('eCatalogues/files', basename($ecatalogues->image), 'public');
             $ecatalogues->image = $path;
         }
          $file = $request->file('file');
@@ -157,7 +155,6 @@ class EcataloguesController extends Controller
         $ecatalogues->description = $request->input('description');
 
         $ecatalogues->save();
-
         if ($ecatalogues->save()) {
             return redirect(route('admin.ecatalogues'))->with([
                 'message' => sprintf(' The ECatalogue: "%s" edit success !', $ecatalogues->name),

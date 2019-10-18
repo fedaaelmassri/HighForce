@@ -149,15 +149,14 @@ class EcataloguesController extends Controller
         if($file&&$file->isValid()){
             $path = $file->storeAs('eCatalogues/files', basename($ecatalogues->file), 'public');
              $ecatalogues->filepath = $path;
-    		$ecatalogues->mimetype =$file->getClientMimeType();
-    		$ecatalogues->size = $file->getClientSize();
+    		$ecatalogues->mimetype =$path->getClientMimeType();
+    		$ecatalogues->size = $path->getClientSize();
 
     }
         $ecatalogues->name = $request->input('name');
         $ecatalogues->description = $request->input('description');
 
         $ecatalogues->save();
-
         if ($ecatalogues->save()) {
             return redirect(route('admin.ecatalogues'))->with([
                 'message' => sprintf(' The ECatalogue: "%s" edit success !', $ecatalogues->name),

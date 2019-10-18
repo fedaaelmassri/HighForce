@@ -147,7 +147,7 @@ Route::namespace('backend')->prefix('/admin/ecatalogues')->middleware(['auth'])-
     Route::post('/store','EcataloguesController@store')->name('admin.ecatalogues.store');
     Route::get('/delete/{id}', 'EcataloguesController@delete')->name('admin.ecatalogues.delete');
     Route::get('/edit/{id}', 'EcataloguesController@editECatalogues')->name('admin.ecatalogues.edit');
-    Route::put('{id}', 'EcataloguesController@updateECatalogues')->name('admin.ecatalogues.update');
+    Route::put('{id}', 'EcataloguesController@editECatalogues')->name('admin.ecatalogues.update');
 });
 /* .... end catalogues route .... */
 
