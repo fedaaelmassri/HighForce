@@ -117,7 +117,7 @@
 
                             //  var url='{{URL::to('/admin/products')}}'+'/getSupCat';
                          $(document).ready(function() {
-                            //  alert("ffffffff"+x);
+                             alert("ffffffff"+x);
                              $.ajax({
 	 type:'GET',
 	 dataType:'json',
@@ -125,17 +125,17 @@
 	 success:function(data){
         //  alert("data"+data)
 		 $.each(data.categories,function(index,valu){
-            // alert('option_1'+' -- '+valu.name);
+            alert('option_1'+' -- '+valu.name);
 			 if(valu.parent_id==0   ){
-				//  alert('option_1'+' -- '+valu.name);
+				 alert('option_1'+' -- '+valu.name);
 				$('#main_category_id').append(
-                     ' <option  value="'+valu.name+'"  >'+valu.name+' </option> '
-                    // $("<option></option>")
-                    //             .text(valu.name)
-                    //             .val(valu.id)
+                    // ' <option  value="'+valu.name+'"  >'+valu.name+' </option> '
+                    $("<option></option>")
+                                .text(valu.name)
+                                .val(valu.id)
                     );
 			  _id=valu.id;
-			  get();
+			//   get();
 			  }
 			  //get();
 			  // alert(getcat);
@@ -164,8 +164,6 @@
 	 }
 
                          });
-
-
                         });
 
 
@@ -215,6 +213,92 @@
 // 	 }
 
 //  });
+//  function get(){
+//     alert("1");
+
+// 	 var output;
+// 	 $.ajax({
+// 		 async:false,
+// 	 type:'GET',
+// 	 dataType:'json',
+// 	 url:'{{URL::to('/admin/products')}}'+'/getSupCat',
+// 	 success:function(data){
+// 		 $.each(data.data,function(index,valu){
+
+
+// 			 if(_id==valu.parent_id ){
+// 				 output="--"+valu.name
+// 			//	 alert('option_2'+' -- '+valu.name);
+// 				  $('#main_category_id').append(
+//                     //   ' <option  value="'+valu.name+'"  >'+output+' </option> '
+//                     $("<option></option>")
+//                                 .text(valu.name)
+//                                 .val(valu.id)
+//                       );
+// 				 _id2=valu.id;
+// 			 get2();
+
+// 			//getcat=valu.parent_id;
+// 		//	getcat_1=valu.id;
+// 			 }
+
+
+// 			// alert(valu.name);
+// 		 })
+
+// 	 }
+
+//  })
+
+//  }
+
+
+//  function get2(){
+// alert("2");
+// 	 var output,output2;
+// 	 var x=1;
+// 	 $.ajax({
+// 		 async:false,
+// 	 type:'GET',
+// 	 dataType:'json',
+// 	 url:'{{URL::to('/admin/products')}}'+'/getSupCat',
+// 	 success:function(data){
+// 		 $.each(data.data,function(index,valu){
+// 			if((_id2==valu.parent_id && _id2!=_id)   ){x=0;
+// 				_id3=valu.id;
+// 				output="--"+valu.name
+// 			 	//alert('option_3'+' -- '+valu.name);
+// 				  $('#main_category_id').append(
+//                     //   ' <option  value="'+valu.name+'"  >'+output+' </option> '
+//                     $("<option></option>")
+//                                 .text(valu.name)
+//                                 .val(valu.id)
+//                       );
+
+// 			//getcat=valu.parent_id;
+// 		//	getcat_1=valu.id;
+// 		/*if(_id3==valu.id){
+// 				  $('#main_category_id').append(' <option  value="'+valu.name+'"  >'+valu.name+' </option> ');
+// 			 }*/
+// 			 }
+// 			if(_id3==valu.parent_id  && x==0){x=1;
+// 			output2="--"+valu.name;
+// 				  $('#main_category_id').append(
+//                     //   ' <option  value="'+valu.name+'"  >'+output2+' </option> '
+//                           $("<option></option>")
+//                                 .text(valu.name)
+//                                 .val(valu.id)
+
+//                       );
+// 			}
+
+// 		 })
+
+// 	 }
+
+//  })
+
+//  }
 
 
 //   });
@@ -245,92 +329,6 @@
                 //     });
 
                 //  }
-                function get(){
-    // alert("1");
-
-	 var output;
-	 $.ajax({
-		 async:false,
-	 type:'GET',
-	 dataType:'json',
-	 url:'{{URL::to('/admin/products')}}'+'/getSupCat',
-	 success:function(data){
-		 $.each(data.categories,function(index,valu){
-
-
-			 if(_id==valu.parent_id ){
-				 output="&nbsp;&nbsp;&nbsp; ->"+valu.name
-			//	 alert('option_2'+' -- '+valu.name);
-				  $('#main_category_id').append(
-                      ' <option  value="'+valu.name+'"  >'+output+' </option> '
-                    // $("<option></option>")
-                    //             .text(valu.name)
-                    //             .val(valu.id)
-                      );
-				 _id2=valu.id;
-			 get2();
-
-			//getcat=valu.parent_id;
-		//	getcat_1=valu.id;
-			 }
-
-
-			// alert(valu.name);
-		 })
-
-	 }
-
- })
-
- }
-
-
- function get2(){
-// alert("2");
-	 var output,output2;
-	 var x=1;
-	 $.ajax({
-		 async:false,
-	 type:'GET',
-	 dataType:'json',
-	 url:'{{URL::to('/admin/products')}}'+'/getSupCat',
-	 success:function(data){
-		 $.each(data.categories,function(index,valu){
-			if((_id2==valu.parent_id && _id2!=_id)   ){x=0;
-				_id3=valu.id;
-				output="&nbsp; &nbsp; &nbsp; -->"+valu.name
-			 	//alert('option_3'+' -- '+valu.name);
-				  $('#main_category_id').append(
-                     ' <option  value="'+valu.name+'"  >'+output+' </option> '
-                    // $("<option></option>")
-                    //             .text(valu.name)
-                    //             .val(valu.id)
-                      );
-
-			//getcat=valu.parent_id;
-		//	getcat_1=valu.id;
-		/*if(_id3==valu.id){
-				  $('#main_category_id').append(' <option  value="'+valu.name+'"  >'+valu.name+' </option> ');
-			 }*/
-			 }
-			if(_id3==valu.parent_id  && x==0){x=1;
-			output2=" &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;--->"+valu.name;
-				  $('#main_category_id').append(
-                       ' <option  value="'+valu.name+'"  >'+output2+' </option> '
-                        //   $("<option></option>")
-                        //         .text(valu.name)
-                        //         .val(valu.id)
-
-                      );
-			}
-
-		 })
-
-	 }
-
- })
-
- }
 
                  </script>
           @endsection

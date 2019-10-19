@@ -32,10 +32,7 @@ class ProductsController extends Controller
 //     ->get()
 //     ;
 
-        $categories=DB::select('select distinct id, name, parent_id
-        from categories
-         group by id');
-        // Categories::groupBy('id')->distinct()->get();
+        $categories=Categories::groupBy('id')->distinct()->get();
         if($categories){
             return response()->json(['categories'=>$categories]);
 
