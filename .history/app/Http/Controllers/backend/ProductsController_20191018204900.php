@@ -20,22 +20,8 @@ class ProductsController extends Controller
 
 
     }
-    public function getSupCat(){
-//         select distinct id, name, parent_id
-// from categories
-// group by id
-// ;
-// $categories=Categories::with('children')
-// ->groupBy('id')->distinct()
-//     // ->where('parent_id',0)
-//      ->orderBy('name', 'asc')
-//     ->get()
-//     ;
-
-        $categories=DB::select('select distinct id, name, parent_id
-        from categories
-         group by id');
-        // Categories::groupBy('id')->distinct()->get();
+    public function getSupCat($id){
+        $categories=Categories::all()->where('parent_id', $id);
         if($categories){
             return response()->json(['categories'=>$categories]);
 
@@ -52,12 +38,12 @@ class ProductsController extends Controller
         // $categories = DB::table('Categories')
         // ->orderByRaw('parent_id DESC')
         // ->get();
-        // $categories=Categories::with('children')
-        // ->groupBy('id')->distinct()
-        //     // ->where('parent_id',0)
-        //      ->orderBy('name', 'asc')
-        //     ->get()
-        //     ;
+        $categories=Categories::with('children')
+        ->groupBy('parent_id')->distinct()
+            // ->where('parent_id',0)
+             ->orderBy('name', 'asc')
+            ->get()
+            ;
             // dd($categories);
             // exit;
 
@@ -66,7 +52,7 @@ class ProductsController extends Controller
         // $categories=Categories::all()->where('parent_id', 0);
         $brands=Brands::all();
 
-        return view ('backend.Products.addProduct')->with([/*'categories'=>$categories,*/'brands'=>$brands]);
+        return view ('backend.Products.addProduct')->with(['categories'=>$categories,'brands'=>$brands]);
 
 
     }

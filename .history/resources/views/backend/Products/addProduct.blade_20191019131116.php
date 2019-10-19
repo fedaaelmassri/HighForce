@@ -314,7 +314,7 @@
 			 }*/
 			 }
 			if(_id3==valu.parent_id  && x==0){x=1;
-			output2=" &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;--->"+valu.name;
+			output2=" &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;-->"+valu.name;
 				  $('#main_category_id').append(
                        ' <option  value="'+valu.name+'"  >'+output2+' </option> '
                         //   $("<option></option>")

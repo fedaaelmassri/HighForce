@@ -27,7 +27,6 @@ Route::get('/contact_us', 'frontend\ContactUsController@index')->name('contactUs
 Route::get('/about', 'frontend\AboutController@index')->name('about');
 Route::post('/send_email', 'frontend\ContactUsController@docontactus')->name('sendEmail');
 Route::post('/send_email/QuickContactus', 'frontend\ContactUsController@QuickContactus')->name('sendEmail.QuickContactus');
-Route::get('refreshcaptcha', 'frontend\ContactUsController@refreshCaptcha')->name('refreshcaptcha');
 
 //////////////////////  service route  //////////////////
 Route::get('/service/{id}', 'frontend\ServicesController@viewById')->name('details');
@@ -36,18 +35,6 @@ Route::get('ecatalogues/{id}/download', 'frontend\ServicesController@downloads')
 
 
 ////////////////////// end service route //////////////////
-
-
-
-
-//////////////////////  Brand route  //////////////////
-
-Route::get('/brands', 'frontend\BrandsController@index')->name('brands');
-
-Route::get('/post/{id}', 'frontend\PostsController@viewById')->name('post-details');
-
-
-////////////////////// end Brand route //////////////////
 
 //////////////////////  Blog route  //////////////////
 
@@ -77,9 +64,9 @@ Route::get('/', function () {
     return view('frontend.home');
 });
 
-// Route::get('/brands', function () {
-//     return view('frontend.brands');
-// })->name('brands');
+Route::get('/brands', function () {
+    return view('frontend.brands');
+})->name('brands');
 
 
 
@@ -146,7 +133,7 @@ Route::namespace('backend')->prefix('/admin/products')->middleware(['auth'])->gr
     Route::get('/', 'ProductsController@index')->name('admin.products');
     Route::get('/create','ProductsController@create')->name('admin.products.create');
     Route::post('/store','ProductsController@store')->name('admin.products.store');
-    Route::get('/getSupCat', 'ProductsController@getSupCat')->name('admin.products.getSupCat');
+    Route::get('/getSupCat/{id}', 'ProductsController@getSupCat')->name('admin.products.getSupCat');
     Route::get('/delete/{id}', 'ProductsController@delete')->name('admin.products.delete');
     Route::get('/edit/{id}', 'ProductsController@editProduct')->name('admin.products.edit');
     Route::put('{id}', 'ProductsController@updateProduct')->name('admin.products.update');
@@ -159,8 +146,8 @@ Route::namespace('backend')->prefix('/admin/ecatalogues')->middleware(['auth'])-
     Route::get('/create','EcataloguesController@create')->name('admin.ecatalogues.create');
     Route::post('/store','EcataloguesController@store')->name('admin.ecatalogues.store');
     Route::get('/delete/{id}', 'EcataloguesController@delete')->name('admin.ecatalogues.delete');
-    Route::get('/edit/{id}', 'EcataloguesController@editECatalogues')->name('admin.ecatalogues.edit');
-    Route::put('{id}', 'EcataloguesController@updateECatalogues')->name('admin.ecatalogues.update');
+    Route::get('/edit/{id}', 'EcataloguesController@editCatalogue')->name('admin.ecatalogues.edit');
+    Route::put('{id}', 'EcataloguesController@editECatalogues')->name('admin.ecatalogues.update');
 });
 /* .... end catalogues route .... */
 

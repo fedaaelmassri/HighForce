@@ -259,7 +259,7 @@
 
 
 			 if(_id==valu.parent_id ){
-				 output="&nbsp;&nbsp;&nbsp; ->"+valu.name
+				 output="&nbsp; -->"+valu.name
 			//	 alert('option_2'+' -- '+valu.name);
 				  $('#main_category_id').append(
                       ' <option  value="'+valu.name+'"  >'+output+' </option> '
@@ -298,7 +298,7 @@
 		 $.each(data.categories,function(index,valu){
 			if((_id2==valu.parent_id && _id2!=_id)   ){x=0;
 				_id3=valu.id;
-				output="&nbsp; &nbsp; &nbsp; -->"+valu.name
+				output="&nbsp; &nbsp; -->"+valu.name
 			 	//alert('option_3'+' -- '+valu.name);
 				  $('#main_category_id').append(
                      ' <option  value="'+valu.name+'"  >'+output+' </option> '
@@ -314,7 +314,7 @@
 			 }*/
 			 }
 			if(_id3==valu.parent_id  && x==0){x=1;
-			output2=" &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;--->"+valu.name;
+			output2=" &nbsp;  &nbsp; &nbsp; &nbsp;-->"+valu.name;
 				  $('#main_category_id').append(
                        ' <option  value="'+valu.name+'"  >'+output2+' </option> '
                         //   $("<option></option>")

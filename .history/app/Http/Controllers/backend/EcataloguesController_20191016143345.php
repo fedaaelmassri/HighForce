@@ -156,8 +156,7 @@ class EcataloguesController extends Controller
         $ecatalogues->name = $request->input('name');
         $ecatalogues->description = $request->input('description');
 
-        $ecatalogues->save();
-
+        // $ecatalogues->save();
         if ($ecatalogues->save()) {
             return redirect(route('admin.ecatalogues'))->with([
                 'message' => sprintf(' The ECatalogue: "%s" edit success !', $ecatalogues->name),
