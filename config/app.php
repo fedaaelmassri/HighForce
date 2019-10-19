@@ -139,6 +139,10 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+
+        // ...
+        Mews\Captcha\CaptchaServiceProvider::class,
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -189,7 +193,7 @@ return [
     */
 
     'aliases' => [
-
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

@@ -23,6 +23,7 @@ class ContactUsController extends Controller
             'name' => 'required',
             'subject' => 'required',
             'message' => 'required',
+            'captcha' => 'required|captcha'
 
           ],
          );
@@ -201,5 +202,8 @@ class ContactUsController extends Controller
 
     }
 
-
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 }

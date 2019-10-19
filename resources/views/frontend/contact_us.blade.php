@@ -82,18 +82,37 @@
                                     <input id="subject" name="subject" class="form-control required" type="text" placeholder="Enter Subject">
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea id="message" name="message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group ">
+                                    <div class="captcha">
+                                        <span style="padding-right:6px;">{!! captcha_img() !!}</span>
+                                        <button type="button" id="refresh" class="btn btn-success "><i class="fa fa-refresh"></i></button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <div class="form-group ">
+
+                                    <input id="captcha"  name ="captcha" required="" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="g-recaptcha" data-sitekey="6LfjR7wUAAAAAPR3omgOZmPcLs8I_rZmaU1EdDVp">
-                        </div>
-                        {{env('GOOGLE_RECAPTCHA_KEY')}}
-                        <div id="contact-form-result" class="alert alert-success" role="alert" style="display: none;">
-                        </div>
+
                         <div class="form-group text-center mb-0">
-                            <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+
                             <button data-loading-text="Please wait..." class="btn btn-colored btn-rounded btn-theme-colored pl-30 pr-30" type="submit">Send your message</button>
                         </div>
                     </form>
@@ -102,7 +121,7 @@
                 </div>
 
                 <div class="col-md-6">
-                     <iframe style="border:0" allowfullscreen width="600" height="425" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d846.8341340404598!2d35.922398529202155!3d31.897452398827912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b58af0c404581%3A0x24ae14eb20c405bb!2sHigh+Force+Engineering+Solutions+Ltd!5e0!3m2!1sen!2s!4v1502276308644"></iframe>
+                    <iframe style="border:0" allowfullscreen width="600" height="425" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d846.8341340404598!2d35.922398529202155!3d31.897452398827912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b58af0c404581%3A0x24ae14eb20c405bb!2sHigh+Force+Engineering+Solutions+Ltd!5e0!3m2!1sen!2s!4v1502276308644"></iframe>
                     <!-- Google Map Javascript Codes -->
 
 
@@ -117,6 +136,22 @@
 
 
 @section('js')
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyCZS5wBc1UzKHoKxZTpjHS_1K-CFbk3vTU"></script>
-<script src="{{asset('assets/js/google-map-init-multilocation.js')}}"></script>
+<!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyCZS5wBc1UzKHoKxZTpjHS_1K-CFbk3vTU"></script> -->
+<!-- <script src="{{asset('assets/js/google-map-init-multilocation.js')}}"></script> -->
+
+
+<script type="text/javascript">
+    $(document).on("click", '#refresh', function() {
+        console.log('salam');
+        var url = '{{URL::to('/refreshcaptcha')}}';
+        console.log(url);
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function(data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+</script>
 @endsection

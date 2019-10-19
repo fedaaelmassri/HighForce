@@ -27,6 +27,7 @@ Route::get('/contact_us', 'frontend\ContactUsController@index')->name('contactUs
 Route::get('/about', 'frontend\AboutController@index')->name('about');
 Route::post('/send_email', 'frontend\ContactUsController@docontactus')->name('sendEmail');
 Route::post('/send_email/QuickContactus', 'frontend\ContactUsController@QuickContactus')->name('sendEmail.QuickContactus');
+Route::get('refreshcaptcha', 'frontend\ContactUsController@refreshCaptcha')->name('refreshcaptcha');
 
 //////////////////////  service route  //////////////////
 Route::get('/service/{id}', 'frontend\ServicesController@viewById')->name('details');
