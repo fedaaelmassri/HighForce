@@ -86,7 +86,23 @@
 @section('content')
 
 
+<section class="inner-header bg-black-222">
+    <div class="container pt-10 pb-10">
+        <!-- Section Content -->
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12">
 
+                    <ol class="breadcrumb text-black mb-10" style="margin-top:18px">
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('about')}}">About</a></li>
+                        <li class="active text-theme-colored">About High Force</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Section: Why Choose Us -->
 <section class="bg-silver-light bg-no-repeat bg-img-left-top" data-bg-img="images/photos/2.png">
 

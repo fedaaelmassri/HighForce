@@ -6,80 +6,93 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mail;
 use Session;
-
+use Captcha;
+use Settings;
 
 class ContactUsController extends Controller
 {
-    public function index() {
-        return view('frontend.contact_us');
 
+
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
+    public function index()
+    {
+        return view('frontend.contactUs');
     }
     public function docontactus(Request $request)
     {
 
-        $validatedData = $request->validate([
-
-            'email' => 'required|email',
-            'name' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-            'captcha' => 'required|captcha'
-
-          ],
-         );
+        //  return   Captcha::create();
 
 
-        $email=$request->email;
-        $msg=$request->message;
-        $name=$request->name;
-        $sub=$request->subject;
-        $phone=$request->phone;
+        $validatedData = $request->validate(
+            [
 
-        $emailcompany ='salam.alfaleet@gmail.com';
+                'email' => 'required|email',
+                'name' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+                'captcha' => 'required|captcha'
+
+            ],
+        );
+
+
+
+        $email = $request->email;
+        $msg = $request->message;
+        $name = $request->name;
+        $sub = $request->subject;
+        $phone = $request->phone;
+
+        // $emailcompany = 'salam.alfaleet@gmail.com';
         // Setting::where('name','email')->pluck('value')->toArray();
         // $emailadmin = $emailcompany[0];
-
+         $email=Settings::where('constant', 'email')->pluck('value')->toArray();
+        $emailcompany=$email[0];
         //dd($emailadmin);
 
-        $namecompany = 'High Force' ;
+        $namecompany = 'High Force';
 
         // Setting::where('name','companyname')->pluck('value')->toArray();
         // $titlecompany = $namecompany[0];
 
         //dd($titlecompany);
 
-        $content='
-         <br>  حساب الخاص بك : '.$email.' <br>
-         الاسم : <strong> '.$name.' </strong> <br>
-         رقم الجوال : <strong> '.$phone.' </strong> <br>
-         الموضوع : <strong> '.$sub.' </strong> <br>
-         نص الرسالة : <p> '.$msg.'</p> ';
+        $content = '
+         <br>  حساب الخاص بك : ' . $email . ' <br>
+         الاسم : <strong> ' . $name . ' </strong> <br>
+         رقم الجوال : <strong> ' . $phone . ' </strong> <br>
+         الموضوع : <strong> ' . $sub . ' </strong> <br>
+         نص الرسالة : <p> ' . $msg . '</p> ';
 
-        $subject='اتصل بنا';
+        $subject = 'اتصل بنا';
 
-        $emails=array('email_from'=>$emailcompany,'email_to'=>$email,'subject'=>$subject) ;
+        $emails = array('email_from' => $emailcompany, 'email_to' => $email, 'subject' => $subject);
 
         $data = [
-                'content' => $content,
-                'Subject'=>$subject,
-                'usernameadmin'=>$namecompany
-            ];
+            'content' => $content,
+            'Subject' => $subject,
+            'usernameadmin' => $namecompany
+        ];
 
-        $mail=\Mail::send('emails.system-mail', $data, function ($message) use ($emails)
-            {
+        $mail = \Mail::send('emails.system-mail', $data, function ($message) use ($emails) {
             $message->from($emails['email_from'], 'highForce Contact us');
             $message->to($emails['email_to'])->subject($emails['subject']);
         });
 
-        Session::put(['message',' تم إرسال رسالتك بنجاح ']);
+        Session::put(['message', ' تم إرسال رسالتك بنجاح ']);
         $notification = array(
 
             'message' => 'تم إرسال رسالتك بنجاح ',
 
             'alert-type' => 'success'
 
-          );
-          return redirect()->route('contactUs')->with($notification);
+        );
+        return redirect()->route('home')->with($notification);
 
 
         // if($mail)
@@ -114,63 +127,63 @@ class ContactUsController extends Controller
     public function QuickContactus(Request $request)
     {
 
-        $validatedData = $request->validate([
+        $validatedData = $request->validate(
+            [
 
-            'email' => 'required|email',
+                'email' => 'required|email',
 
-            'message' => 'required',
+                'message' => 'required',
 
-          ],
-         );
-
-
-        $email=$request->email;
-        $msg=$request->message;
+            ],
+        );
 
 
-        $emailcompany ='salam.alfaleet@gmail.com';
-        // Setting::where('name','email')->pluck('value')->toArray();
-        // $emailadmin = $emailcompany[0];
+        $email = $request->email;
+        $msg = $request->message;
+
+
+        // $emailcompany = 'salam.alfaleet@gmail.com';
+        $email=Settings::where('constant', 'email')->pluck('value')->toArray();
+        $emailcompany=$email[0];
 
         //dd($emailadmin);
 
-        $namecompany = 'High Force' ;
+        $namecompany = 'High Force';
 
         // Setting::where('name','companyname')->pluck('value')->toArray();
         // $titlecompany = $namecompany[0];
 
         //dd($titlecompany);
 
-        $content='
-         <br>  Email : '.$email.' <br>
+        $content = '
+         <br>  Email : ' . $email . ' <br>
 
-         Message: <p> '.$msg.'</p> ';
+         Message: <p> ' . $msg . '</p> ';
 
-        $subject='Quick Contact';
+        $subject = 'Quick Contact';
 
-        $emails=array('email_from'=>$emailcompany,'email_to'=>$email,'subject'=>$subject) ;
+        $emails = array('email_from' => $emailcompany, 'email_to' => $email, 'subject' => $subject);
 
         $data = [
-                'content' => $content,
-                'Subject'=>$subject,
-                'usernameadmin'=>$namecompany
-            ];
+            'content' => $content,
+            'Subject' => $subject,
+            'usernameadmin' => $namecompany
+        ];
 
-        $mail=\Mail::send('emails.system-mail', $data, function ($message) use ($emails)
-            {
+        $mail = \Mail::send('emails.system-mail', $data, function ($message) use ($emails) {
             $message->from($emails['email_from'], 'highForce Contact us');
             $message->to($emails['email_to'])->subject($emails['subject']);
         });
 
-        Session::put(['message',' تم إرسال رسالتك بنجاح ']);
+        Session::put(['message', ' تم إرسال رسالتك بنجاح ']);
         $notification = array(
 
             'message' => 'تم إرسال رسالتك بنجاح ',
 
             'alert-type' => 'success'
 
-          );
-          return redirect()->route('home')->with($notification);
+        );
+        return redirect()->route('home')->with($notification);
 
 
         // if($mail)
@@ -204,6 +217,107 @@ class ContactUsController extends Controller
 
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img()]);
+        return response()->json(['captcha' => captcha_img()]);
     }
+
+
+    public function GetAQuoteNow(Request $request)
+    {
+
+    //   /return   $request->input('emailQouta');
+
+
+        $validatedData = $request->validate(
+            [
+
+                'emailQouta' => 'required|email',
+                'name' => 'required',
+                'messageQouta' => 'required',
+
+
+            ],
+        );
+
+
+
+        $email =  $request->input('emailQouta');
+        $msg = $request->input('messageQouta');
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+
+        // $emailcompany = 'salam.alfaleet@gmail.com';
+        $email=Settings::where('constant', 'email')->pluck('value')->toArray();
+        $emailcompany=$email[0];
+
+        //dd($emailadmin);
+
+        $namecompany = 'High Force';
+
+        // Setting::where('name','companyname')->pluck('value')->toArray();
+        // $titlecompany = $namecompany[0];
+
+        //dd($titlecompany);
+
+        $content = '
+         <br>  حساب الخاص بك : ' . $email . ' <br>
+         الاسم : <strong> ' . $name . ' </strong> <br>
+         رقم الجوال : <strong> ' . $phone . ' </strong> <br>
+         نص الرسالة : <p> ' . $msg . '</p> ';
+
+        $subject = 'Get A Quote Now';
+
+        $emails = array('email_from' => $email, 'email_to' => $emailcompany, 'subject' => $subject);
+
+        $data = [
+            'content' => $content,
+            'Subject' => $subject,
+            'usernameadmin' => $namecompany
+        ];
+
+        // $mail = \Mail::send('emails.system-mail', $data, function ($message) use ($emails) {
+        //     $message->from($emails['email_from'], 'highForce Contact us');
+        //     $message->to($emails['email_to'])->subject($emails['subject']);
+        // });
+
+        // Session::put(['message', ' تم إرسال رسالتك بنجاح ']);
+        // $notification = array(
+
+        //     'message' => 'تم إرسال رسالتك بنجاح ',
+
+        //     'alert-type' => 'success'
+
+        // );
+        return response()->json(['message' => sprintf('تم إرسال رسالتك بنجاح ' )]);
+
+
+
+        // if($mail)
+        // {
+        //     Session::put(['messagecontactus',' تم إرسال رسالتك بنجاح ']);
+        //     $notification = array(
+
+        //         'messagecontactus' => 'تم إرسال رسالتك بنجاح ',
+
+        //         'alert-type' => 'success'
+
+        //       );
+        //       return redirect()->route('contactus.url')->with($notification);
+
+        // }
+        // else
+        // {
+        //     Session::put(['messageregister', ' لم يتم إرسال رسالتك ']);
+        //     $notification = array(
+
+        //         'messagecontactus' => 'لم يتم إرسال رسالتك ',
+
+        //         'alert-type' => 'error'
+
+        //       );
+        //       return redirect()->route('contactus.url')->with($notification);
+
+        // }
+
+    }
+
 }

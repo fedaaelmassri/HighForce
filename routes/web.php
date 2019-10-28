@@ -22,11 +22,13 @@
 /* .... Start Front end ...*/
 
 
-Route::get('/Home', 'frontend\HomeController@index')->name('home');
+Route::get('/', 'frontend\HomeController@index')->name('home');
 Route::get('/contact_us', 'frontend\ContactUsController@index')->name('contactUs');
 Route::get('/about', 'frontend\AboutController@index')->name('about');
 Route::post('/send_email', 'frontend\ContactUsController@docontactus')->name('sendEmail');
 Route::post('/send_email/QuickContactus', 'frontend\ContactUsController@QuickContactus')->name('sendEmail.QuickContactus');
+Route::post('/send_email/GetAQuoteNow', 'frontend\ContactUsController@GetAQuoteNow')->name('sendEmail.GetAQuoteNow');
+
 Route::get('refreshcaptcha', 'frontend\ContactUsController@refreshCaptcha')->name('refreshcaptcha');
 
 //////////////////////  service route  //////////////////
@@ -73,9 +75,15 @@ Route::get('/ecatalog/{id}/download', 'frontend\EcalalogController@viewById')->n
 
 ////////////////////// end ecatalog route //////////////////
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
+// Route::get('/', function () {
+
+
+
+
+
+
+//     return view('frontend.home');
+// });
 
 // Route::get('/brands', function () {
 //     return view('frontend.brands');
@@ -190,6 +198,19 @@ Route::namespace('backend')->prefix('/admin/category')->middleware(['auth'])->gr
 
 });
 /* .... end category route .... */
+
+
+/* .... route Settings ....  */
+Route::namespace('backend')->prefix('/admin/setting')->middleware(['auth'])->group(function (){
+    Route::get('/', 'SettingController@index')->name('admin.settings');
+    Route::post('update','SettingController@update')->name('admin.setting.update');
+
+
+
+
+});
+/* .... end Settings route .... */
+
 
 
   // ******************** Auth route For Admin **********************************

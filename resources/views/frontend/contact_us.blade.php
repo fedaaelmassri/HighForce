@@ -89,21 +89,32 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <div class="form-group ">
-                                    <div class="captcha">
-                                        <span style="padding-right:6px;">{!! captcha_img() !!}</span>
-                                        <button type="button" id="refresh" class="btn btn-success "><i class="fa fa-refresh"></i></button>
-                                    </div>
+                            <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
+                      <label for="password" class="col-md-4 control-label">Captcha</label>
 
 
-                                </div>
+                      <div class="col-md-6">
+                          <div class="captcha">
+                          <span>{!! captcha_img() !!}</span>
+                          <button type="button" class="btn btn-success btn-refresh"><i class="fa fa-refresh"></i></button>
+                          </div>
+                          <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+
+
+                          @if ($errors->has('captcha'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('captcha') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                  </div>
                             </div>
 
 
                             <div class="col-sm-6">
                                 <div class="form-group ">
 
-                                    <input id="captcha"  name ="captcha" required="" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+                                    <input id="captcha" name="captcha" required="" type="text" class="form-control" placeholder="Enter Captcha" >
 
                                 </div>
                             </div>
@@ -111,7 +122,7 @@
 
 
                         <div class="form-group text-center mb-0">
-                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+                            <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
 
                             <button data-loading-text="Please wait..." class="btn btn-colored btn-rounded btn-theme-colored pl-30 pr-30" type="submit">Send your message</button>
                         </div>
@@ -143,7 +154,7 @@
 <script type="text/javascript">
     $(document).on("click", '#refresh', function() {
         console.log('salam');
-        var url = '{{URL::to('/refreshcaptcha')}}';
+        var url = '{{URL::to(' / refreshcaptcha ')}}';
         console.log(url);
         $.ajax({
             type: 'GET',
@@ -154,4 +165,7 @@
         });
     });
 </script>
+
+
+
 @endsection

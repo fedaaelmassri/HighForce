@@ -55,26 +55,23 @@
     @yield('style')
 
     <style>
+        .list-inline {
+            display: none;
 
-    .list-inline{
-display:none;
 
+        }
 
-    }
-    #customies {
-        width: 23% !important;
-      display: block;
-      margin-block-end: 2px;
+        #customies {
+            width: 23% !important;
+            display: block;
+            margin-block-end: 2px;
 
-    /* clear: both;
+            /* clear: both;
 
     border: 0 none ;
     font-size: 12px ;
     position: relative; */
-}
-
-
-
+        }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -112,18 +109,18 @@ display:none;
                         <div class="col-md-3 pr-0">
                             <div class="widget no-border m-0">
                                 <ul class="styled-icons icon-dark icon-flat icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
-                                    <li><a href="#"><i class="fa fa-facebook text-white"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
+                                    <li><a href="{{$data['facebook_value']}}"><i class="fa fa-facebook text-white"></i></a></li>
+                                    <li><a href="{{$data['twitter_value']}}"><i class="fa fa-twitter text-white"></i></a></li>
                                     <!-- <li><a href="#"><i class="fa fa-google-plus text-white"></i></a></li>
                                     <li><a href="#"><i class="fa fa-instagram text-white"></i></a></li> -->
-                                    <li><a href="#"><i class="fa fa-linkedin text-white"></i></a></li>
+                                    <li><a href="{{$data['linkedin_value']}}"><i class="fa fa-linkedin text-white"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <a class="btn btn-colored btn-flat btn-theme-colored  pb-10" href="{{route('ecatalog')}}">E-Catalog</a>
 
-                            <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Get A Quote Now</a>
+                            <a class="btn btn-colored btn-flat btn-theme-colored bs-modal-ajax-load pb-10" data-toggle="modal" data-target="#BSParentModal">Get A Quote Now</a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +165,7 @@ display:none;
 
                                         @foreach($brands as $brand)
                                         <li><a href="">{{$brand->name}} -
-                                        <img alt="" width="20" height="10" src="{{asset('storage/'.$brand->image) }}">
+                                                <img alt="" width="20" height="10" src="{{asset('storage/'.$brand->image) }}">
                                             </a></li>
                                         @endforeach
                                     </ul>
@@ -277,7 +274,7 @@ display:none;
                                 </div>
                                 <div class="form-group">
                                     <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                                    <button type="submit" class="btn btn-default btn-transparent btn-xs btn-flat mt-0" data-loading-text="Please wait...">Send Message</button>
+                                    <button type="submit" class="btn btn-default btn-transparent btn-xs btn-flat " >Send Message</button>
                                 </div>
                             </form>
 
@@ -324,8 +321,121 @@ display:none;
     </script>
 
 
+<script>
+     $(document).ready(function() {
+   $(document).on("click", '.sendQuote', function() {
+        // alert("hhh");
+
+        var url='{{URL::to('/send_email/GetAQuoteNow')}}';
+
+    //  alert($("#name").val() );
+    //  alert($("#messageQouta").val() );
+    //  alert($("#phone").val() );
+    //  alert($('#emailQouta').val() );
+    //     // console.log(url);
+
+
+    // alert(url);
+        $.ajax({
+            url:url ,
+            type: 'POST',
+            data: {
+                'name':$("#name").val(),
+                'phone':$("#phone").val(),
+                'emailQouta':$("#emailQouta").val(),
+                'messageQouta':$('#messageQouta').val(),
+                '_token':$('input[name="_token"]').val(),
+
+                },
+            success: function(data) {
+                // alert(data);
+                $('#BSParentModal').modal('toggle');
+                toastr.success(""+data.message);
+                $('#BSParentModal').modal('hide');
+
+            },
+            error: function (data) {
+                // alert(data.responseJSON.errors.messageQouta);
+                if(data.responseJSON.errors.name)
+                    $('.nameError').text(data.responseJSON.errors.name);
+                if(data.responseJSON.errors.messageQouta)
+                    $('.messageError').text(data.responseJSON.errors.messageQouta);
+                    if(data.responseJSON.errors.emailQouta)
+                    $('.emailError').text(data.responseJSON.errors.emailQouta);
+            }
+        });
+
+    });
+
+});
+</script>
+
+
     @yield('js')
 
 </body>
 
+
+
+
 </html>
+
+<div class="modal fade" id="BSParentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Get A Quote Now</h4>
+            </div>
+            <div class="modal-body">
+                <form id="reservation_form_popup" name="reservation_form" class="reservation-form" >
+                    <h3 class="mt-0 line-bottom mb-40">Get A Free Service<span class="text-theme-colored font-weight-600"> Now!</span></h3>
+@csrf
+                    <!-- <input type="hidden" name="_token" value="{{ csrf_token()}}"> -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group mb-30">
+                                <input placeholder="Enter Name" type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror">
+
+                                    <p class="text-danger nameError"></p>
+
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group mb-30">
+                                <input placeholder="Email" type="email" id="emailQouta" name="emailQouta" class="form-control  @error('emailQouta') is-invalid @enderror" >
+
+                                    <p class="text-danger emailError"></p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group mb-30">
+                                <input placeholder="Phone" type="text" id="phone" name="phone" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea id="messageQouta" name="messageQouta" class="form-control  @error('messageQouta') is-invalid @enderror" rows="5" placeholder="Enter Message"></textarea>
+
+                                    <p class="text-danger messageError"></p>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="btn btn-colored btn-theme-colored btn-lg btn-flat sendQuote">Submit Now</button>
+
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
