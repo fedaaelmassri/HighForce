@@ -10,6 +10,7 @@
     <meta name="description" content="Industrypress - Factory & Industrial Business Template" />
     <meta name="keywords" content="building,business,construction,cleaning,transport,workshop" />
     <meta name="author" content="ThemeMascot" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Page Title -->
     <title>High Force</title>
@@ -57,7 +58,350 @@
     <style>
         .list-inline {
             display: none;
+        }
 
+.fixed-plugin {
+  position: fixed;
+  right: 0;
+  width: 64px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1031;
+  border-radius: 8px 0 0 8px;
+  text-align: center;
+  top: 120px;
+}
+
+.fixed-plugin li>a,
+.fixed-plugin .badge {
+  transition: all .34s;
+  -webkit-transition: all .34s;
+  -moz-transition: all .34s;
+}
+
+.fixed-plugin .fa-cog {
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 0 0 6px 6px;
+  width: auto;
+}
+
+.fixed-plugin .dropdown-menu {
+  right: 80px;
+  left: auto !important;
+  top: -52px !important;
+  width: 290px;
+  border-radius: 0.1875rem;
+  padding: 0 10px;
+  background: linear-gradient(#222a42, #1d253b);
+}
+
+.fixed-plugin .dropdown .dropdown-menu .tim-icons {
+  top: 5px;
+}
+
+.fixed-plugin .dropdown-menu:after,
+.fixed-plugin .dropdown-menu:before {
+  right: 10px;
+  margin-left: auto;
+  left: auto;
+}
+
+.fixed-plugin .fa-circle-thin {
+  color: #FFFFFF;
+}
+
+.fixed-plugin .active .fa-circle-thin {
+  color: #00bbff;
+}
+
+.fixed-plugin .dropdown-menu>.active>a,
+.fixed-plugin .dropdown-menu>.active>a:hover,
+.fixed-plugin .dropdown-menu>.active>a:focus {
+  color: #777777;
+  text-align: center;
+}
+
+.fixed-plugin img {
+  border-radius: 0;
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.fixed-plugin .dropdown-menu li>a:hover,
+.fixed-plugin .dropdown-menu li>a:focus {
+  box-shadow: none;
+}
+
+.fixed-plugin .badge {
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 23px;
+  margin-right: 5px;
+  position: relative;
+  width: 23px;
+}
+
+.fixed-plugin .badge.active,
+.fixed-plugin .badge:hover {
+  border-color: #1d253b;
+}
+
+.fixed-plugin .badge-primary {
+  background-color: #e14eca;
+}
+
+.fixed-plugin .badge-blue {
+  background-color: #1d8cf8;
+}
+
+.fixed-plugin .badge-green {
+  background-color: #00f2c3;
+}
+
+.fixed-plugin .badge-orange {
+  background-color: #ff8d72;
+}
+
+.fixed-plugin .badge-red {
+  background-color: #fd5d93;
+}
+
+.fixed-plugin .light-badge,
+.fixed-plugin .dark-badge {
+  margin: 0;
+  border: 1px solid #1d8cf8;
+}
+
+.fixed-plugin .light-badge:hover,
+.fixed-plugin .dark-badge:hover {
+  border: 1px solid #1d8cf8;
+}
+
+.fixed-plugin .light-badge {
+  background: #FFFFFF;
+}
+
+.fixed-plugin .light-badge:hover {
+  background: #FFFFFF;
+}
+
+.fixed-plugin .dark-badge {
+  background: #222a42;
+}
+
+.fixed-plugin .dark-badge:hover {
+  background: #222a42;
+}
+
+.fixed-plugin h5 {
+  font-size: 14px;
+  margin: 10px;
+}
+
+.fixed-plugin .dropdown-menu li {
+  display: block;
+  padding: 18px 2px;
+  width: 25%;
+  float: left;
+}
+
+.fixed-plugin li.adjustments-line,
+.fixed-plugin li.header-title,
+.fixed-plugin li.button-container {
+  width: 100%;
+  height: 50px;
+  min-height: inherit;
+}
+
+.fixed-plugin li.button-container {
+  height: auto;
+}
+
+.fixed-plugin li.button-container div {
+  margin-bottom: 5px;
+}
+
+.fixed-plugin #sharrreTitle {
+  text-align: center;
+  padding: 10px 0;
+  height: 50px;
+}
+
+.fixed-plugin li.header-title {
+  color: #FFFFFF;
+  height: 30px;
+  line-height: 25px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.fixed-plugin .adjustments-line p {
+  float: left;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 1em;
+  color: #3C4858;
+}
+
+.fixed-plugin .adjustments-line a {
+  color: transparent;
+}
+
+.fixed-plugin .adjustments-line a .badge-colors {
+  position: relative;
+  top: -2px;
+}
+
+.fixed-plugin .adjustments-line a a:hover,
+.fixed-plugin .adjustments-line a a:focus {
+  color: transparent;
+}
+
+.fixed-plugin .adjustments-line .togglebutton {
+  text-align: center;
+}
+
+.fixed-plugin .adjustments-line .togglebutton .label-switch {
+  position: relative;
+  left: -10px;
+  font-size: 0.7142em;
+  color: #FFFFFF;
+}
+
+.fixed-plugin .adjustments-line .togglebutton .label-switch.label-right {
+  left: 10px;
+}
+
+.fixed-plugin .adjustments-line .togglebutton .toggle {
+  margin-right: 0;
+}
+
+.fixed-plugin .adjustments-line .color-label {
+  position: relative;
+  top: -7px;
+  font-size: 0.7142em;
+  color: #FFFFFF;
+}
+
+.fixed-plugin .adjustments-line .dropdown-menu>li.adjustments-line>a {
+  padding-right: 0;
+  padding-left: 0;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  margin: 0;
+}
+
+.fixed-plugin .dropdown-menu>li>a.img-holder {
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FFF;
+  border: 3px solid #FFF;
+  padding-left: 0;
+  padding-right: 0;
+  opacity: 1;
+  cursor: pointer;
+  display: block;
+  max-height: 100px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.fixed-plugin .dropdown-menu>li>a.img-holder img {
+  margin-top: auto;
+}
+
+.fixed-plugin .dropdown-menu>li a.switch-trigger:hover,
+.fixed-plugin .dropdown-menu>li>a.switch-trigger:focus {
+  background-color: transparent;
+}
+
+.fixed-plugin .dropdown-menu>li:hover>a.img-holder,
+.fixed-plugin .dropdown-menu>li:focus>a.img-holder {
+  border-color: rgba(0, 187, 255, 0.53);
+}
+
+.fixed-plugin .dropdown-menu>.active>a.img-holder,
+.fixed-plugin .dropdown-menu>.active>a.img-holder {
+  border-color: #00bbff;
+  background-color: #FFFFFF;
+}
+
+.fixed-plugin .btn-social {
+  width: 50%;
+  display: block;
+  width: 48%;
+  float: left;
+  font-weight: 600;
+}
+
+.fixed-plugin .btn-social i {
+  margin-right: 5px;
+}
+
+.fixed-plugin .btn-social:first-child {
+  margin-right: 2%;
+}
+
+.fixed-plugin .dropdown .dropdown-menu {
+  -webkit-transform: translateY(-15%);
+  -moz-transform: translateY(-15%);
+  -o-transform: translateY(-15%);
+  -ms-transform: translateY(-15%);
+  transform: translateY(-15%);
+  top: 27px;
+  opacity: 0;
+  transform-origin: 0 0;
+}
+
+.fixed-plugin .dropdown .dropdown-menu:before {
+  border-bottom: 0.4em solid rgba(0, 0, 0, 0);
+  border-left: 0.4em solid rgba(0, 0, 0, 0.2);
+  border-top: 0.4em solid rgba(0, 0, 0, 0);
+  right: -16px;
+  top: 46px;
+}
+
+.fixed-plugin .dropdown .dropdown-menu:after {
+  border-bottom: 0.4em solid rgba(0, 0, 0, 0);
+  border-left: 0.4em solid #222a42;
+  border-top: 0.4em solid rgba(0, 0, 0, 0);
+  right: -16px;
+}
+
+.fixed-plugin .dropdown .dropdown-menu:before,
+.fixed-plugin .dropdown .dropdown-menu:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 74px;
+  width: 16px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+}
+
+.fixed-plugin .dropdown.show .dropdown-menu {
+  opacity: 1;
+  -webkit-transform: translateY(-13%);
+  -moz-transform: translateY(-13%);
+  -o-transform: translateY(-13%);
+  -ms-transform: translateY(-13%);
+  transform: translateY(-13%);
+  transform-origin: 0 0;
+}
+
+.fixed-plugin .bootstrap-switch {
+  margin: 0;
+}
+
+    .list-inline{
+display:none;
 
         }
 
@@ -148,10 +492,17 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Products </a>
+
+                                <li>
+                                <?php
+
+                        $category = App\Categories::first();
+                        ?>
+
+                                 <a href=" {{route('product_details')}}">Products </a>
+
                                 </li>
-                                </li>
-                                <!-- <li><a href="{{route('brands')}}">Brands</a>
+                   <!-- <li><a href="{{route('brands')}}">Brands</a>
 
                                 </li> -->
 
@@ -297,7 +648,46 @@
         <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     </div>
     <!-- end wrapper -->
-
+    <div class="fixed-plugin">
+      <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+          <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="header-title"> Sidebar Background</li>
+          <li class="adjustments-line">
+            <a href="javascript:void(0)" class="switch-trigger background-color">
+              <div class="badge-colors text-center">
+                <span class="badge filter badge-primary active" data-color="primary"></span>
+                <span class="badge filter badge-blue" data-color="blue"></span>
+                <span class="badge filter badge-green" data-color="green"></span>
+              </div>
+              <div class="clearfix"></div>
+            </a>
+          </li>
+          <li class="adjustments-line text-center color-change">
+            <span class="color-label">LIGHT MODE</span>
+            <span class="badge light-badge mr-2"></span>
+            <span class="badge dark-badge ml-2"></span>
+            <span class="color-label">DARK MODE</span>
+          </li>
+          <li class="button-container">
+            <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
+            <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
+              Documentation
+            </a>
+          </li>
+          <li class="header-title">Thank you for 95 shares!</li>
+          <li class="button-container text-center">
+            <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
+            <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
+            <br>
+            <br>
+            <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
@@ -305,6 +695,27 @@
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script>
+           $(document).ready(function() {
+        $().ready(function() {
+
+
+            fixed_plugin_open = $('.wrapper .main-content .nav li.active a p').html();
+
+
+
+
+          $('.fixed-plugin a').click(function(event) {
+            // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+            if ($(this).hasClass('switch-trigger')) {
+              if (event.stopPropagation) {
+                event.stopPropagation();
+              } else if (window.event) {
+                window.event.cancelBubble = true;
+              }
+            }
+          });
+
+        }); });
         @if(session('message'))
 
         var type = "{{session('alert-type')}}"

@@ -111,13 +111,13 @@
                             </div>
 
 
-                            <div class="col-sm-6">
+                            <!-- <div class="col-sm-6">
                                 <div class="form-group ">
 
                                     <input id="captcha" name="captcha" required="" type="text" class="form-control" placeholder="Enter Captcha" >
 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
 

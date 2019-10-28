@@ -104,7 +104,7 @@
                                 <td>{{$product->description}}</td>
                                 <td>{{App\Brands::find($product->brand_id)->name}}</td>
                                 <td>{{App\Categories::find($product->category_id)->name}}</td>
-                                <td><img src="{{asset('storage/' . $post->image )}}" height="40" width="50"></td>
+                                <td><img src="{{asset('storage/' . $product->image )}}" height="40" width="50"></td>
                                 <td nowrap="">
 
 <a href="{{route('admin.products.edit' , [ 'id' => $product->id ])}}" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Edit"> <i class="la la-edit"></i>

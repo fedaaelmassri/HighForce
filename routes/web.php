@@ -40,6 +40,17 @@ Route::get('ecatalogues/{id}/download', 'frontend\ServicesController@downloads')
 ////////////////////// end service route //////////////////
 
 
+//////////////////////  Product route  //////////////////
+Route::get('/product', 'frontend\ProductController@index')->name('product_details');
+
+Route::post('/getSupCat', 'frontend\ProductController@getSupCat')->name('products.getSupCat');
+
+
+////////////////////// end Product route //////////////////
+
+
+
+
 
 
 //////////////////////  Brand route  //////////////////
@@ -156,8 +167,8 @@ Route::namespace('backend')->prefix('/admin/products')->middleware(['auth'])->gr
     Route::post('/store','ProductsController@store')->name('admin.products.store');
     Route::get('/getSupCat', 'ProductsController@getSupCat')->name('admin.products.getSupCat');
     Route::get('/delete/{id}', 'ProductsController@delete')->name('admin.products.delete');
-    Route::get('/edit/{id}', 'ProductsController@editProduct')->name('admin.products.edit');
     Route::put('{id}', 'ProductsController@updateProduct')->name('admin.products.update');
+    Route::get('/edit/{id}', 'ProductsController@editProduct')->name('admin.products.edit');
 });
 /* .... end Products route .... */
 
