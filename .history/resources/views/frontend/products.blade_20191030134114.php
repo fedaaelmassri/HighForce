@@ -68,7 +68,28 @@
         </div>
           <div class="row multi-row-clearfix">
             <div class="products">
-            <div id="productsfilter">
+            <div id="#productsfilter">
+              <!-- <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
+                <div class="product pb-0">
+                  <span class="tag-sale">Sale!</span>
+                  <div class="product-thumb">
+                    <img alt="" src="http://placehold.it/320x360" class="img-responsive img-fullwidth">
+                    <div class="overlay">
+                      <div class="btn-add-to-cart-wrapper">
+                        <a class="btn btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">Add To Cart</a>
+                      </div>
+                      <div class="btn-product-view-details">
+                        <a class="btn btn-default btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">View detail</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-details text-center bg-lighter pt-15 pb-10">
+                    <a href="#"><h5 class="product-title mt-0">Product Name</h5></a>
+                    <div class="star-rating" title="Rated 3.50 out of 5"><span style="width: 67%;">3.50</span></div>
+                    <div class="price"><del><span class="amount">$110.00</span></del><ins><span class="amount">$90.00</span></ins></div>
+                  </div>
+                </div>
+              </div> -->
               @foreach($products as $products)
               <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
                 <div class="product pb-0">
@@ -267,41 +288,41 @@
  }
 
 
- function viewByCat(id) {
-    var url_m='productsByCat/'+id;
-            $.ajax({
-                url: url_m,
-                data: {},
-                method: 'GET',
-                beforeSend:function(){
-                    // $.blockUI({ message: '<h1><img src="{{ asset('assetYalla/img/pageLoader.svg') }}" /></h1>' , css: {border: 'none', background: 'none' } });
+//  function viewByCat(id) {
+//     var url='{{URL::to('/productsByCat')}}';
 
-                    // $("#"+id+".first-akar").find('#itemView').empty();
-                    //$("#productsfilter").empty();
-                    // $("#imgSl-"+id).show();
+//             $.ajax({
+//                 url: url+'/'+id,
+//                 data: {id:id},
+//                 method: 'get',
+//                 beforeSend:function(){
+//                     // $.blockUI({ message: '<h1><img src="{{ asset('assetYalla/img/pageLoader.svg') }}" /></h1>' , css: {border: 'none', background: 'none' } });
 
+//                     // $("#"+id+".first-akar").find('#itemView').empty();
+//                     $("#productsfilter").empty();
+//                     // $("#imgSl-"+id).show();
 
-                    // $("#imgSl-"+id).css('display' , 'flex');
-                    // $("#"+id+".first-akar").find('#itemView').fadeOut();
+//                     // $("#imgSl-"+id).css('display' , 'flex');
+//                     // $("#"+id+".first-akar").find('#itemView').fadeOut();
 
-                },
+//                 },
 
-            }).done(function (data) {
-                //alert(data);
-                console.log(data)
+//             }).done(function (data) {
+//                 //alert(data);
+//                 console.log(data)
 
-                $("#productsfilter").html(data);
-                // $("#imgSl-"+id).hide();
-                // $("#"+id+".first-akar").find('#itemView').html(data);
-                // $("#"+id+".first-akar").find('#itemView').fadeIn();
-                // $("#imgSl-"+id).fadeOut();
-                if(data == '') {
-                    // $("#"+id+".first-akar").append('<div>hello</div>');
-                }
+//                 $("#productsfilter").html(data);
+//                 // $("#imgSl-"+id).hide();
+//                 // $("#"+id+".first-akar").find('#itemView').html(data);
+//                 // $("#"+id+".first-akar").find('#itemView').fadeIn();
+//                 // $("#imgSl-"+id).fadeOut();
+//                 if(data == '') {
+//                     // $("#"+id+".first-akar").append('<div>hello</div>');
+//                 }
 
-                // console.log(s);
-            });
-        }
+//                 // console.log(s);
+//             });
+//         }
 
                  </script>
 @endsection

@@ -44,7 +44,7 @@ Route::get('ecatalogues/{id}/download', 'frontend\ServicesController@downloads')
 Route::get('/product', 'frontend\ProductController@index')->name('product_details');
 
 Route::post('/getSupCat', 'frontend\ProductController@getSupCat')->name('products.getSupCat');
-Route::get('/productsByCat/{id}', 'frontend\ProductController@viewByCat')->name('products.productsByCat');
+Route::gett('/productsByCat/{id}', 'frontend\ProductController@viewByCat')->name('products.productsByCat');
 
 
 ////////////////////// end Product route //////////////////

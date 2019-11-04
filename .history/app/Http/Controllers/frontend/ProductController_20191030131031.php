@@ -51,12 +51,8 @@ class ProductController extends Controller
 
     public function viewByCat($id)
 {
-    $products= Products::where('category_id', '=', $id)->get();
-
-
+    $products= Products::where('category_id', '=', $id);
 if($products){
-    // return response()->json(['products'=>$products]);
-
     return view('frontend.productsByCat')->with([
      //   'allProducts' => Products::get(),
      'products' =>$products,

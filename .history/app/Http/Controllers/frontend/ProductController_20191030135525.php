@@ -54,10 +54,10 @@ class ProductController extends Controller
     $products= Products::where('category_id', '=', $id)->get();
 
 
+    dd($products);
+    exit;
 if($products){
-    // return response()->json(['products'=>$products]);
-
-    return view('frontend.productsByCat')->with([
+    return view('frontend.products')->with([
      //   'allProducts' => Products::get(),
      'products' =>$products,
      'brands' => Brands::get(),

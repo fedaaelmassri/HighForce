@@ -55,7 +55,6 @@ class ProductController extends Controller
 
 
 if($products){
-    // return response()->json(['products'=>$products]);
 
     return view('frontend.productsByCat')->with([
      //   'allProducts' => Products::get(),

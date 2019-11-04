@@ -68,23 +68,49 @@
         </div>
           <div class="row multi-row-clearfix">
             <div class="products">
-            <div id="productsfilter">
+            <div id="#productsfilter">
+              <!-- <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
+                <div class="product pb-0">
+                  <span class="tag-sale">Sale!</span>
+                  <div class="product-thumb">
+                    <img alt="" src="http://placehold.it/320x360" class="img-responsive img-fullwidth">
+                    <div class="overlay">
+                      <div class="btn-add-to-cart-wrapper">
+                        <a class="btn btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">Add To Cart</a>
+                      </div>
+                      <div class="btn-product-view-details">
+                        <a class="btn btn-default btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">View detail</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-details text-center bg-lighter pt-15 pb-10">
+                    <a href="#"><h5 class="product-title mt-0">Product Name</h5></a>
+                    <div class="star-rating" title="Rated 3.50 out of 5"><span style="width: 67%;">3.50</span></div>
+                    <div class="price"><del><span class="amount">$110.00</span></del><ins><span class="amount">$90.00</span></ins></div>
+                  </div>
+                </div>
+              </div> -->
               @foreach($products as $products)
               <div class="col-sm-6 col-md-4 col-lg-4 mb-30">
                 <div class="product pb-0">
                   <div class="product-thumb">
-                  <img alt="" src="{{asset('storage/'.$products->image)}}"width="320" heigt="360" class="img-responsive img-fullwidth">
-
+                    <img alt="" src="http://placehold.it/320x360" class="img-responsive img-fullwidth">
+                    <div class="overlay">
+                      <div class="btn-add-to-cart-wrapper">
+                        <a class="btn btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">Add To Cart</a>
+                      </div>
+                      <div class="btn-product-view-details">
+                        <a class="btn btn-default btn-theme-colored btn-sm btn-flat pl-20 pr-20 btn-add-to-cart text-uppercase font-weight-700" href="#">View detail</a>
+                      </div>
+                    </div>
                   </div>
                   <div class="product-details text-center bg-lighter pt-15 pb-10">
-                    <a href="#"><h5 class="product-title mt-0">{{$products->name}} </h5></a>
-                  </div>
+                    <a href="#"><h5 class="product-title mt-0">{{$products->name}}</h5></a>
+                    </div>
                 </div>
               </div>
+           @endforeach
 
-              @endforeach
-
-              </div>
               <div class="col-md-12">
                 <nav>
                   <ul class="pagination theme-colored mt-0">
@@ -182,7 +208,7 @@
                         if(valu.parent_id==0   ){
                           	$('#catlist').append(
 
-                                     '  <li   class=" " ><a   data-toggle="collapse" href="javascript:void(0);" data-target="#childcat-'+valu.id+'"   onclick="viewByCat('+valu.id+')"> '+ valu.name+'</a> <ul class="collapse list list-border angle-double-right" id="childcat-'+valu.id+'"></ul> </li> '
+                                     '  <li   class=" " ><a   data-toggle="collapse" href="javascript:void(0);" data-target="#childcat-'+valu.id+'"  > '+ valu.name+'</a> <ul class="collapse list list-border angle-double-right" id="childcat-'+valu.id+'"></ul> </li> '
 
 
 
@@ -213,7 +239,7 @@
                         if(_id==valu.parent_id ){
                             output="&nbsp;&nbsp;&nbsp; "+valu.name
                             $("#childcat-"+id).append(
-                                '  <li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" data-target="#childpcat-'+valu.id+'" onclick="viewByCat('+valu.id+')"  >  <i  class="fa fa-angle-right"></i> &nbsp;&nbsp;'+ valu.name+'</a> <ul class="collapse list list-border angle-double-right" id="childpcat-'+valu.id+'"></ul> </li> '
+                                '  <li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" data-target="#childpcat-'+valu.id+'"  >  <i  class="fa fa-angle-right"></i> &nbsp;&nbsp;'+ valu.name+'</a> <ul class="collapse list list-border angle-double-right" id="childpcat-'+valu.id+'"></ul> </li> '
 
                                 // '&nbsp;&nbsp;&nbsp; <li id="childpcat-'+valu.id +'"    > <i  class="fa fa-angle-right"></i>'+output+'</li>'
 
@@ -248,13 +274,13 @@
   				  $('#childpcat-'+id).append(
 
                     //  '<br/><input type="checkbox" name="vehicle3" value="'+valu.id+'" checked>'+output
-                     '  <li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" onclick="viewByCat('+valu.id+')" data-target="#childppcat-'+valu.id+'"  ><i  class="fa fa-angle-right"></i> &nbsp;&nbsp; '+ valu.name+'</a>  <ul class="collapse list list-border angle-double-right" id="childppcat-'+valu.id+'"></ul> </li> '
+                     '  <li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" data-target="#childppcat-'+valu.id+'"  ><i  class="fa fa-angle-right"></i> &nbsp;&nbsp; '+ valu.name+'</a>  <ul class="collapse list list-border angle-double-right" id="childppcat-'+valu.id+'"></ul> </li> '
 
                       );
 			 }
 			if(_id3==valu.parent_id  && x==0){x=1;
  				  $('#childppcat-'+id).append(
-            '<li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" data-target="#childpppcat-'+valu.id+'" onclick="viewByCat('+valu.id+')" > '+ valu.name+'</a>   </li> '
+            '<li    class=" " > <a   data-toggle="collapse" href="javascript:void(0);" data-target="#childpppcat-'+valu.id+'"  > '+ valu.name+'</a>   </li> '
                          );
 			}
 
@@ -266,42 +292,6 @@
 
  }
 
-
- function viewByCat(id) {
-    var url_m='productsByCat/'+id;
-            $.ajax({
-                url: url_m,
-                data: {},
-                method: 'GET',
-                beforeSend:function(){
-                    // $.blockUI({ message: '<h1><img src="{{ asset('assetYalla/img/pageLoader.svg') }}" /></h1>' , css: {border: 'none', background: 'none' } });
-
-                    // $("#"+id+".first-akar").find('#itemView').empty();
-                    //$("#productsfilter").empty();
-                    // $("#imgSl-"+id).show();
-
-
-                    // $("#imgSl-"+id).css('display' , 'flex');
-                    // $("#"+id+".first-akar").find('#itemView').fadeOut();
-
-                },
-
-            }).done(function (data) {
-                //alert(data);
-                console.log(data)
-
-                $("#productsfilter").html(data);
-                // $("#imgSl-"+id).hide();
-                // $("#"+id+".first-akar").find('#itemView').html(data);
-                // $("#"+id+".first-akar").find('#itemView').fadeIn();
-                // $("#imgSl-"+id).fadeOut();
-                if(data == '') {
-                    // $("#"+id+".first-akar").append('<div>hello</div>');
-                }
-
-                // console.log(s);
-            });
-        }
 
                  </script>
 @endsection

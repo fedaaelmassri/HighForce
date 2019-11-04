@@ -49,19 +49,16 @@ class ProductController extends Controller
         ]);
     }
 
-    public function viewByCat($id)
+    public function viewByCat($catid)
 {
-    $products= Products::where('category_id', '=', $id)->get();
-
-
+    $products= Products::where(function ($query) {
+        $query->where('category_id', '=', $catid);
+ });
 if($products){
-    // return response()->json(['products'=>$products]);
-
     return view('frontend.productsByCat')->with([
      //   'allProducts' => Products::get(),
      'products' =>$products,
-     'brands' => Brands::get(),
-     'categories' => Categories::get(),
+
     ]);
  }
 
