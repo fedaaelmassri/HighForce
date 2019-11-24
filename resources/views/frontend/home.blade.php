@@ -218,8 +218,10 @@
                                                         <li><i class="fa fa-calendar text-theme-colored mr-5"></i> June 26, 2016 </li>
                                                     </ul>
                                                 </div> -->
-                                    <p class="mt-5">{{$post->description}}</p>
-                                    <a class="btn btn-theme-colored btn-sm mt-5" href="{{route('post-details' , [ 'id' => $post->id ])}}"> View Details</a>
+                                                <p class="mt-5">
+                                     {{  strlen($post->description)<200 ? $post->description : substr($post->description,0,strpos($post->description, ' ', 200)) }}
+                                    </p>
+                                          <a class="btn btn-theme-colored btn-sm mt-5" href="{{route('post-details' , [ 'id' => $post->id ])}}"> View Details</a>
                                 </div>
                             </article>
                         </div>

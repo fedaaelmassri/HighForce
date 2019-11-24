@@ -35,7 +35,6 @@ class ProductController extends Controller
     }
     public function viewById($id)
     {
-        // $services = Services::find($id);
         $categories=DB::select('select distinct id, name, parent_id
         from categories
          group by id');
@@ -53,8 +52,7 @@ class ProductController extends Controller
 {
     $products= Products::where('category_id','=', $id)->paginate(10);
     return view('frontend.productsByCat')->with([
-     //   'allProducts' => Products::get(),
-     'products' =>$products,
+      'products' =>$products,
      'brands' => Brands::get(),
      'categories' => Categories::get(),
     ]);
